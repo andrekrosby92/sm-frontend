@@ -29,7 +29,7 @@ export default function Textarea({
         <textarea
           autoComplete={autoComplete}
           className={
-            'w-full block px-3 pt-6 pb-2 rounded-lg bg-transparent font-light ' +
+            'w-full block px-3 pt-6 pb-2 rounded-lg bg-transparent font-light appearance-none ' +
             `ring-inset ring-1 focus:ring-2 focus:outline-none ` +
             `${messageError ? 'focus:ring-red-600' : 'focus:ring-black'} ` +
             `${messageError ? 'ring-red-600' : 'ring-gray-300'}`

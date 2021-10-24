@@ -41,10 +41,16 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
           <section className="hidden xl:block space-y-2">
             <div className="text-lg font-medium">Vi bruker kvalitetsprodukter fra:</div>
             <span className="block">
-              <Image alt="Avery Dennison Logo" height={45} src="/images/avery-dennison-logo.svg" width={137} />
+              <Image
+                alt="Avery Dennison Logo"
+                height={45}
+                src="/images/avery-dennison-logo.svg"
+                unoptimized
+                width={137}
+              />
             </span>
             <span className="block">
-              <Image alt="3M Logo" height={45} src="/images/3m-logo.svg" width={85} />
+              <Image alt="3M Logo" height={45} src="/images/3m-logo.svg" unoptimized width={85} />
             </span>
           </section>
         </section>

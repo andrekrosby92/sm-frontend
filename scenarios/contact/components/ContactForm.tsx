@@ -135,8 +135,8 @@ export default function ContactForm(): JSX.Element {
           <Input
             autoComplete="tel"
             label="Telefonnummer"
-            name="phoneNumber"
-            onChange={(value) => setFields((prevState) => ({ ...prevState, phoneNumber: value }))}
+            name="phone_number"
+            onChange={(value) => setFields((prevState) => ({ ...prevState, phone_number: value }))}
             type="text"
             value={fields.phone_number}
           />

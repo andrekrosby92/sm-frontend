@@ -8,6 +8,13 @@ module.exports = {
         light: '0px 2px 6px 2px rgba(0, 0, 0, 0.075)',
       },
       colors: {
+        accent: {
+          DEFAULT: '#005248',
+          dark: '#00423a',
+          darker: '#00100e',
+          light: '#33756d',
+          lighter: '#ccdcda',
+        },
         primary: {
           DEFAULT: '#feb813',
           dark: '#7f5c0a',
@@ -21,13 +28,6 @@ module.exports = {
           darker: '#110e09',
           light: '#d4c5ad',
           lighter: '#f6f3ef',
-        },
-        accent: {
-          DEFAULT: '#005248',
-          dark: '#00423a',
-          darker: '#00100e',
-          light: '#33756d',
-          lighter: '#ccdcda',
         },
       },
       transitionProperty: {

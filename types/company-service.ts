@@ -1,3 +1,4 @@
+import { CompanyServiceSubCategory } from './company-service-sub-category'
 import { SanityBlock, SanityElement, SanityImage, SanitySlug } from './sanity'
 
 export interface CompanyService extends SanityElement {
@@ -7,6 +8,7 @@ export interface CompanyService extends SanityElement {
   shortDescription: string
   slug: SanitySlug
   title: string
+  subCategories?: CompanyServiceSubCategory[]
 }
 
 export type CompanyServiceMinimal = Pick<CompanyService, 'icon' | 'shortDescription' | 'slug' | 'title'>

@@ -1,5 +1,6 @@
 import SectionHeaderPrimary from 'components/SectionHeaders/SectionHeaderPrimary'
 import SectionWrapperPrimary from 'components/SectionWrappers/SectionWrapperPrimary'
+// import NewsletterSignupForm from 'scenarios/newsletter/NewsletterSignupForm'
 
 import ContactCard from './ContactCard'
 import ContactForm from './ContactForm'
@@ -12,6 +13,9 @@ export default function Contact(): JSX.Element {
         <ContactCard />
         <ContactForm />
       </div>
+      {/* <div className="py-12">
+        <NewsletterSignupForm />
+      </div> */}
     </SectionWrapperPrimary>
   )
 }

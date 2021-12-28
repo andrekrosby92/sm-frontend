@@ -10,7 +10,7 @@ export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.E
   return (
     <div className="bg-secondary-lighter/50">
       <SectionWrapperPrimary className="xl:py-24 space-y-6">
-        <SectionHeaderPrimary>Hva vi gjør</SectionHeaderPrimary>
+        <SectionHeaderPrimary>Hva gjør vi?</SectionHeaderPrimary>
         <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
           {whatWeDo.map((elem) => (
             <div className="space-y-1" key={elem.title}>

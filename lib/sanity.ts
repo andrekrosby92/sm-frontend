@@ -11,19 +11,19 @@ export function getSanityQuery(type: SanityQuery): string {
 
     case SanityQuery.COMPANY_SERVICE_PATHS:
       return groq`
-        *[_type == "company-service"] {
+        *[_type == "company-service"] | order(order asc){
           slug,
         }
       `
 
     case SanityQuery.COMPANY_SERVICES_LIST:
       return groq`
-        *[_type == "company-service"]
+        *[_type == "company-service"] | order(order asc)
       `
 
     case SanityQuery.COMPANY_SERVICES_MINIMAL_LIST:
       return groq`
-        *[_type == "company-service"] {
+        *[_type == "company-service"] | order(order asc) {
           icon,
           shortDescription,
           slug,
@@ -49,7 +49,7 @@ export function getSanityQuery(type: SanityQuery): string {
 
     case SanityQuery.EMPLOYEES_LIST:
       return groq`
-        *[_type == "employee"]
+        *[_type == "employee"] | order(order asc)
       `
 
     case SanityQuery.NEWS_ARTICLE_DETAIL:
@@ -71,7 +71,7 @@ export function getSanityQuery(type: SanityQuery): string {
 
     case SanityQuery.WHAT_TO_DO_LIST:
       return groq`
-        *[_type == "what-we-do"]
+        *[_type == "what-we-do"] | order(order asc)
       `
 
     default:

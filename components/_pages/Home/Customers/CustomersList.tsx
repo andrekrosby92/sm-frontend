@@ -1,21 +1,27 @@
-import Image from 'next/image'
+import Marquee from 'react-fast-marquee'
 
 import Sanity from 'services/Sanity'
-import SectionWrapperPrimary from 'components/SectionWrappers/SectionWrapperPrimary'
-import { Customer } from 'types/customer'
 import SectionHeaderSecondary from 'components/SectionHeaders/SectionHeaderSecondary'
+import { Customer } from 'types/customer'
 
 export default function CustomersList({ customers }: { customers: Customer[] }): JSX.Element {
   return (
-    <SectionWrapperPrimary className="space-y-6 xl:space-y-10">
+    <div className="py-16 space-y-8">
       <SectionHeaderSecondary>Over 700 fornøyde kunder</SectionHeaderSecondary>
-      <section className="mx-auto grid xl:flex xl:space-x-8 gap-8 xl:gap-0">
-        {customers.map((elem) => (
-          <div className="relative w-full h-8 md:h-10 xl:h-8 filter grayscale" key={elem.title}>
-            <Image alt={elem.title} layout="fill" objectFit="contain" src={Sanity.buildImageUrl(elem.logo)} />
-          </div>
-        ))}
+      <section className="w-full">
+        <Marquee gradient={false}>
+          {[...customers, ...customers].map((elem) => (
+            /* eslint-disable @next/next/no-img-element */
+            <img
+              alt={elem.title}
+              className="h-8 mx-8 filter grayscale md:opacity-75 hover:opacity-100"
+              key={elem.title}
+              src={Sanity.buildImageUrl(elem.logo)}
+            />
+            /* eslint-enable @next/next/no-img-element */
+          ))}
+        </Marquee>
       </section>
-    </SectionWrapperPrimary>
+    </div>
   )
 }

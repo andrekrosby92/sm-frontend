@@ -55,7 +55,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
           </section>
         </section>
         <section className="max-w-max mx-auto space-x-4 flex text-primary">
-          {(['facebook', 'linked-in', 'instagram'] as const).map((elem) => (
+          {(['facebook'] as const).map((elem) => (
             <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary" key={elem}>
               <Icon className="w-5 h-5" name={elem} />
             </div>

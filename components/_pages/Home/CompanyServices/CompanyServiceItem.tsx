@@ -22,7 +22,9 @@ export default function CompanyServiceItem({
       <a className="relative p-6 xl:py-8">
         <SpringAnimateOnHover />
         <div className="h-full flex flex-col text-center">
-          <Image alt={title} height={80} src={Sanity.buildImageUrl(icon)} width={80} />
+          <div>
+            <Image alt={title} height={80} src={Sanity.buildImageUrl(icon)} width={80} />
+          </div>
           <h3 className="my-3 text-2xl font-semibold">{title}</h3>
           <p className="mb-4 xl:mb-12 text-gray-700">{shortDescription}</p>
           <button className="xl:hidden w-full h-12 mt-auto rounded-xl bg-gradient-to-br from-primary to-primary-light font-medium">

@@ -1,4 +1,3 @@
-import NewsletterSignupForm from 'scenarios/newsletter/NewsletterSignupForm'
 import SectionWrapperPrimary from 'components/SectionWrappers/SectionWrapperPrimary'
 
 export default function Hero(): JSX.Element {
@@ -10,9 +9,6 @@ export default function Hero(): JSX.Element {
           Siden 1994 har vi produsert, levert og montert skilt og dekor til næringslivet, fra skisse og idé – frem til
           ferdig produkt.
         </p>
-        <section className="max-w-md py-6">
-          <NewsletterSignupForm />
-        </section>
       </SectionWrapperPrimary>
     </div>
   )

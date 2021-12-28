@@ -69,8 +69,8 @@ export default function NewsletterSignupForm(): JSX.Element {
   }
 
   return (
-    <div className="space-y-1">
-      <span className="text-xs font-light">Ønsker du å få med deg siste nytt fra Skiltmakeren?</span>
+    <div className="space-y-1 max-w-sm mx-auto">
+      <span className="font-light">Ønsker du å få med deg siste nytt fra Skiltmakeren?</span>
       <form className="space-y-2" noValidate onSubmit={handleOnSubmit}>
         <Input
           autoComplete="email"
@@ -86,7 +86,7 @@ export default function NewsletterSignupForm(): JSX.Element {
           <MessageSuccess header="Du er nå påmeldt!" message="Takk for at du viser interesse i Skiltmakeren AS." />
         )}
 
-        <button className="px-3 py-2.5 rounded-lg bg-primary-darker text-primary-lighter">
+        <button className="px-3 py-2.5 rounded-lg bg-primary-darker text-primary">
           {mutation.isLoading ? <Spinner className="h-6 w-6" /> : 'Ja, meld meg på nyhetsbrevet!'}
         </button>
       </form>

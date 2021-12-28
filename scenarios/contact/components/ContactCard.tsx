@@ -13,7 +13,9 @@ export default function ContactCard(): JSX.Element {
       <div className="space-y-2">
         <span className="space-x-3 flex">
           <Icon className="w-6 h-6" name="envelope" />
-          <span className="font-light">post@skiltmakeren.no</span>
+          <a className="font-light" href="mailto:post@skiltmakeren.no">
+            post@skiltmakeren.no
+          </a>
         </span>
         <span className="space-x-3 flex">
           <Icon className="w-6 h-6" name="phone" />
@@ -28,7 +30,7 @@ export default function ContactCard(): JSX.Element {
         </span>
       </div>
       <div className="pt-[150px] flex space-x-4">
-        {(['facebook', 'linked-in', 'instagram'] as const).map((elem) => (
+        {(['facebook'] as const).map((elem) => (
           <Icon className="w-5 h-5" key={elem} name={elem} />
         ))}
       </div>

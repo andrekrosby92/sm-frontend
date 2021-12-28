@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, Fragment, SetStateAction, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
@@ -6,6 +6,9 @@ import { useRouter } from 'next/dist/client/router'
 import type { CompanyServiceMinimal } from 'types/company-service'
 import Sanity from 'services/Sanity'
 import Icon from 'components/Icons/Icon'
+
+import NavbarLogo from './NavbarLogo'
+import NavbarLink from './NavbarLink'
 
 function useSubMenusController(): {
   displayMobileMenu: boolean
@@ -43,37 +46,23 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
     useSubMenusController()
 
   return (
-    <nav className="sticky top-0 h-16 bg-primary-darker" style={{ zIndex: 999 }}>
+    <nav className="sticky top-0 h-16 md:h-20 bg-primary-darker" style={{ zIndex: 999 }}>
       <section className="max-w-6xl mx-auto h-full px-4 xl:px-0 flex items-center justify-between">
-        <Link href="/">
-          <a>
-            <Image alt="Logo" height={45} src="/images/logo.png" width={145} />
-          </a>
-        </Link>
+        <NavbarLogo />
         <button className="xl:hidden space-y-1.5" onClick={() => setDisplayMobileMenu(!displayMobileMenu)}>
           <div className="w-7 h-0.5 rounded bg-gradient-to-l from-primary to-primary-light" />
           <div className="w-7 h-0.5 rounded bg-gradient-to-l from-primary to-primary-light" />
           <div className="w-7 h-0.5 rounded bg-gradient-to-l from-primary to-primary-light" />
         </button>
-        <div className="hidden xl:block space-x-12">
-          <button className="font-light text-primary" onClick={() => setDisplayServicesMenu(!displayServicesMenu)}>
-            Tjenester
-          </button>
-          <Link href="/nyheter">
-            <a className="font-light text-primary">Nyheter</a>
-          </Link>
-          <Link href="/nedlastninger">
-            <a className="font-light text-primary">Nedlastninger</a>
-          </Link>
-          <Link href="/om-oss">
-            <a className="font-light text-primary">Om oss</a>
-          </Link>
-          <Link href="/kontakt">
-            <a className="font-light text-primary">Kontakt</a>
-          </Link>
+        <div className="hidden xl:block space-x-8">
+          <NavbarLink onClick={() => setDisplayServicesMenu(!displayServicesMenu)} path="/tjenester" text="Tjenester" />
+          <NavbarLink path="/nyheter" text="Nyheter" />
+          <NavbarLink path="/nedlastninger" text="Nedlastninger" />
+          <NavbarLink path="/om-oss" text="Om oss" />
+          <NavbarLink path="/kontakt" text="Kontakt" />
         </div>
       </section>
-      <ServicesMenu displayMenu={displayServicesMenu} services={links} />
+      <ServicesMenu displayMenu={displayServicesMenu} services={links} setDisplayMenu={setDisplayServicesMenu} />
       <MobileNavigationMenu displayMenu={displayMobileMenu} links={links} />
     </nav>
   )
@@ -82,10 +71,27 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
 function ServicesMenu({
   displayMenu,
   services,
+  setDisplayMenu,
 }: {
   displayMenu: boolean
   services: CompanyServiceMinimal[]
+  setDisplayMenu: Dispatch<SetStateAction<boolean>>
 }): JSX.Element {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setDisplayMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, setDisplayMenu])
+
   const classNames = displayMenu ? 'h-36 border-b border-secondary-lighter' : 'h-0 border-0'
   const style: React.CSSProperties = {
     backdropFilter: 'blur(32px)',
@@ -94,7 +100,7 @@ function ServicesMenu({
   }
 
   return (
-    <div className={`fixed top-16 left-0 w-full overflow-hidden ${classNames}`}>
+    <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
         {services.map((elem) => (
           <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
@@ -151,7 +157,7 @@ function MobileNavigationMenu({
             </Link>
           </Fragment>
           <section className="max-w-max mx-auto py-8 space-x-4 flex text-primary">
-            {(['facebook', 'linked-in', 'instagram'] as const).map((elem) => (
+            {(['facebook'] as const).map((elem) => (
               <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary" key={elem}>
                 <Icon className="w-5 h-5" name={elem} />
               </div>

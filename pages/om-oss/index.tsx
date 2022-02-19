@@ -10,8 +10,8 @@ import { Employee } from 'types/employee'
 export default function About({ employees }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   return (
     <div>
-      <div className="relative h-64 md:h-[320px] xl:h-[400px]">
-        <Image alt="Gramveien 16, 1832 Askim" layout="fill" objectFit="cover" src="/images/skiltmakeren.jpeg" />
+      <div className="relative w-full h-[25vw]">
+        <Image alt="Gramveien 16, 1832 Askim" layout="fill" objectFit="cover" src="/images/fasade.jpg" />
       </div>
       <SectionWrapperPrimary className="space-y-12">
         <section className="space-y-4">

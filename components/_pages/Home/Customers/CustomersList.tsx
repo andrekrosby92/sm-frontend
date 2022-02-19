@@ -10,7 +10,7 @@ export default function CustomersList({ customers }: { customers: Customer[] }):
       <SectionHeaderSecondary>Over 700 fornøyde kunder</SectionHeaderSecondary>
       <section className="w-full">
         <Marquee gradient={false}>
-          {[...customers, ...customers].map((elem) => (
+          {customers.map((elem) => (
             /* eslint-disable @next/next/no-img-element */
             <img
               alt={elem.title}

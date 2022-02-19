@@ -52,5 +52,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<{ employees
     props: {
       employees: await Sanity.getEmployeesList(),
     },
+    revalidate: 30,
   }
 }

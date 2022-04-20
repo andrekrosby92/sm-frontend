@@ -14,7 +14,7 @@ export default function Layout({
   return (
     <React.Fragment>
       <Navbar links={links} />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen-wo-navbar-sm md:min-h-screen-wo-navbar">{children}</main>
       <Footer companyServices={links} />
     </React.Fragment>
   )

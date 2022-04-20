@@ -12,8 +12,7 @@ export default function NavbarLink({
 }): JSX.Element {
   const router = useRouter()
   const isActive = router.pathname.includes(path)
-
-  const classNames = `-mx-4 px-4 py-3 rounded-full ${isActive ? 'bg-primary text-primary-darker' : 'text-primary'}`
+  const classNames = `p-1.5 text-primary ${isActive ? 'border-b-2 border-primary' : ''}`
 
   if (typeof onClick === 'function') {
     return (

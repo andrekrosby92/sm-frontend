@@ -3,9 +3,11 @@ import { SanityBlock, SanityElement, SanityImage, SanitySlug } from './sanity'
 
 export interface CompanyService extends SanityElement {
   _type: 'company-service'
-  content: SanityBlock[]
+  content?: SanityBlock[]
   icon: SanityImage
+  images?: SanityImage[]
   shortDescription: string
+  layout: 'split' | 'two-column'
   slug: SanitySlug
   title: string
   subCategories?: CompanyServiceSubCategory[]

@@ -41,5 +41,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<{ downloads
     props: {
       downloads: await Sanity.getDownloadsList(),
     },
+    revalidate: 30,
   }
 }

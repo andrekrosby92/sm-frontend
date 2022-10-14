@@ -46,5 +46,6 @@ export async function getStaticProps(
     props: {
       newsArticle: await Sanity.getNewsArticleDetail(context.params?.slug),
     },
+    revalidate: 30,
   }
 }

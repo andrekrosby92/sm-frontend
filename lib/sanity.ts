@@ -52,6 +52,11 @@ export function getSanityQuery(type: SanityQuery): string {
         *[_type == "employee"] | order(order asc)
       `
 
+    case SanityQuery.ENVIRONMENT_PAGE:
+      return groq`
+        *[_type == "environment-page"][0]
+      `
+
     case SanityQuery.NEWS_ARTICLE_DETAIL:
       return groq`
         *[_type == "news-article" && slug.current == $slug][0]

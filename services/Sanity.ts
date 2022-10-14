@@ -6,6 +6,7 @@ import { CompanyService, CompanyServiceMinimal } from 'types/company-service'
 import { Customer } from 'types/customer'
 import { DownloadCategory } from 'types/download'
 import { Employee } from 'types/employee'
+import { EnvironmentPage } from 'types/environment-page'
 import { NewsArticle } from 'types/news-article'
 import { SanityPath, SanityQuery } from 'types/sanity'
 import { WhatWeDo } from 'types/what-we-do'
@@ -55,6 +56,11 @@ class Sanity {
 
   async getEmployeesList(): Promise<Employee[]> {
     const query = getSanityQuery(SanityQuery.EMPLOYEES_LIST)
+    return await this.client.fetch(query)
+  }
+
+  async getEnvironmentPageData(): Promise<EnvironmentPage> {
+    const query = getSanityQuery(SanityQuery.ENVIRONMENT_PAGE)
     return await this.client.fetch(query)
   }
 

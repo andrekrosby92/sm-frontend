@@ -19,6 +19,11 @@ export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.E
                 <h3 className="text-2xl font-medium">{elem.title}</h3>
               </header>
               <p className="text-gray-700">{elem.pitch}</p>
+              {/* {elem.title === 'Miljø' && (
+                <Link href="/miljo">
+                  <a className="text-blue-500">Les mer om miljø</a>
+                </Link>
+              )} */}
             </div>
           ))}
         </section>

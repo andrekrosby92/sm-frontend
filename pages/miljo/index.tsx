@@ -35,22 +35,28 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
           <h1 className="mb-8 text-4xl xl:text-6xl font-semibold hidden md:block">{data.title}</h1>
           <BlockContent blocks={data.content} className="prose xl:prose-lg" />
         </section>
-        <div className="order-1 md:order-2 h-full flex">
-          <section className="h-[200px] md:h-[425px] w-full my-auto overflow-x-hidden">
-            <div className="flex transition-transform" style={{ transform: `translateX(-${index * 100}%)` }}>
-              {data.images?.map((elem) => (
-                <div className="relative flex-shrink-0 h-[200px] md:h-[425px] w-full" key={elem.asset._ref}>
-                  <Image
-                    alt={elem.alt}
-                    className="rounded-lg"
-                    layout="fill"
-                    objectFit="contain"
-                    src={Sanity.buildImageUrl(elem.asset)}
-                  />
-                </div>
-              ))}
+        <div className="order-1 md:order-2 h-full flex flex-col">
+          <div className="w-full my-auto">
+            <section className="h-[200px] md:h-[325px] w-full overflow-x-hidden">
+              <div className="flex transition-transform" style={{ transform: `translateX(-${index * 100}%)` }}>
+                {data.images?.map((elem) => (
+                  <div className="relative flex-shrink-0 h-[200px] md:h-[325px] w-full" key={elem.asset._ref}>
+                    <Image
+                      alt={elem.alt}
+                      className="rounded-lg"
+                      layout="fill"
+                      objectFit="contain"
+                      src={Sanity.buildImageUrl(elem.asset)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <div className="mt-2 mb-4 xl:my-1 text-[20px] xl:text-[30px] text-center text-[#043170] font-cursivex">
+              <h2>Stolt Miljøfyrtårn siden 2017!</h2>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </article>

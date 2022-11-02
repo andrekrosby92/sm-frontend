@@ -30,6 +30,9 @@ module.exports = {
           lighter: '#f6f3ef',
         },
       },
+      fontFamily: {
+        cursivex: "'Cursivex', serif",
+      },
       minHeight: {
         'screen-wo-navbar': 'calc(100vh - 5rem)',
         'screen-wo-navbar-sm': 'calc(100vh - 4rem)',

@@ -35,21 +35,23 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
           <h1 className="mb-4 text-4xl xl:text-6xl font-semibold hidden md:block">{data.title}</h1>
           <BlockContent blocks={data.content} className="prose xl:prose-lg" />
         </section>
-        <section className="order-1 md:order-2 h-[200px] md:h-[500px] overflow-x-hidden">
-          <div className="flex transition-transform" style={{ transform: `translateX(-${index * 100}%)` }}>
-            {data.images?.map((elem) => (
-              <div className="relative flex-shrink-0 h-[200px] md:h-[500px] w-full" key={elem.asset._ref}>
-                <Image
-                  alt={elem.alt}
-                  className="rounded-lg"
-                  layout="fill"
-                  objectFit="cover"
-                  src={Sanity.buildImageUrl(elem.asset)}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
+        <div className="order-1 md:order-2 h-full flex">
+          <section className="h-[200px] md:h-[425px] w-full my-auto overflow-x-hidden">
+            <div className="flex transition-transform" style={{ transform: `translateX(-${index * 100}%)` }}>
+              {data.images?.map((elem) => (
+                <div className="relative flex-shrink-0 h-[200px] md:h-[425px] w-full" key={elem.asset._ref}>
+                  <Image
+                    alt={elem.alt}
+                    className="rounded-lg"
+                    layout="fill"
+                    objectFit="contain"
+                    src={Sanity.buildImageUrl(elem.asset)}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </article>
   )
@@ -57,9 +59,9 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<{ data: IEnvironmentPage }>> {
   return {
+    revalidate: 30,
     props: {
       data: await Sanity.getEnvironmentPageData(),
     },
-    revalidate: 30,
   }
 }

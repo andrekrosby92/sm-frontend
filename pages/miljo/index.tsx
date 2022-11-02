@@ -32,7 +32,7 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
       <div className="flex flex-col md:grid md:grid-cols-2 md:gap-8">
         <h1 className="mb-4 text-4xl xl:text-6xl font-semibold md:hidden">{data.title}</h1>
         <section className="order-2 md:order-1 mt-4 md:mt-0">
-          <h1 className="mb-4 text-4xl xl:text-6xl font-semibold hidden md:block">{data.title}</h1>
+          <h1 className="mb-8 text-4xl xl:text-6xl font-semibold hidden md:block">{data.title}</h1>
           <BlockContent blocks={data.content} className="prose xl:prose-lg" />
         </section>
         <div className="order-1 md:order-2 h-full flex">

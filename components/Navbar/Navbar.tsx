@@ -59,6 +59,7 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
           <NavbarLink path="/nyheter" text="Nyheter" />
           <NavbarLink path="/nedlastninger" text="Nedlastninger" />
           <NavbarLink path="/om-oss" text="Om oss" />
+          <NavbarLink path="/miljo" text="Miljø" />
           <NavbarLink path="/kontakt" text="Kontakt" />
         </div>
       </section>
@@ -151,6 +152,9 @@ function MobileNavigationMenu({
             </Link>
             <Link href="/om-oss">
               <a className="font-light text-xl text-primary">Om oss</a>
+            </Link>
+            <Link href="/miljo">
+              <a className="font-light text-xl text-primary">Miljø</a>
             </Link>
             <Link href="/kontakt">
               <a className="font-light text-xl text-primary">Kontakt</a>

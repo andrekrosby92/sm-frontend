@@ -9,16 +9,11 @@ import { SanityImage } from 'types/sanity'
 export default function BirdFreeLayout({ companyService }: { companyService: CompanyService }): JSX.Element {
   return (
     <article className="max-w-6xl w-full mx-auto px-6 md:px-8 xl:px-0 py-8 md:py-12">
-      <h1 className="mb-4 md:mb-7 text-4xl xl:text-6xl font-semibold">{companyService.title}</h1>
+      <h1 className="mb-4 md:mb-7 text-4xl xl:text-6xl font-semibold text-center">{companyService.title}</h1>
       {companyService.images && <ImageCarousel images={companyService.images} />}
       {companyService.content && (
         <Fragment>
-          <div className="my-12 flex justify-center space-x-4 text-lg">
-            <span>&middot;</span>
-            <span>&middot;</span>
-            <span>&middot;</span>
-          </div>
-          <BlockContent blocks={companyService.content} className="mx-auto prose" />
+          <BlockContent blocks={companyService.content} className="mx-auto my-10 prose" />
         </Fragment>
       )}
       {companyService.subCategories && (
@@ -55,10 +50,10 @@ function ImageCarousel({ images }: { images: SanityImage[] }): JSX.Element {
   }, [images])
 
   return (
-    <div className="h-[200px] md:h-[400px] overflow-x-hidden">
+    <div className="max-w-3xl h-[200px] sm:h-[300px] md:h-[400px] mx-auto overflow-x-hidden">
       <div className="flex transition-transform" style={{ transform: `translateX(-${index * 100}%)` }}>
         {images.map((elem) => (
-          <div className="relative flex-shrink-0 h-[200px] md:h-[400px] w-full" key={elem.asset._ref}>
+          <div className="relative flex-shrink-0 h-[200px] sm:h-[300px] md:h-[400px] w-full" key={elem.asset._ref}>
             <Image
               alt={elem.alt}
               className="rounded-lg"

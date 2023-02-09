@@ -9,7 +9,9 @@ import { SanityImage } from 'types/sanity'
 export default function BirdFreeLayout({ companyService }: { companyService: CompanyService }): JSX.Element {
   return (
     <article className="max-w-6xl w-full mx-auto px-6 md:px-8 xl:px-0 py-8 md:py-12">
-      <h1 className="mb-4 md:mb-7 text-4xl xl:text-6xl font-semibold text-center">{companyService.title}</h1>
+      <h1 className="mb-4 md:mb-7 text-4xl lg:text-5xl xl:text-6xl font-semibold text-center">
+        {companyService.title}
+      </h1>
       {companyService.images && <ImageCarousel images={companyService.images} />}
       {companyService.content && (
         <Fragment>
@@ -20,7 +22,13 @@ export default function BirdFreeLayout({ companyService }: { companyService: Com
         <section className="grid md:grid-cols-2 gap-8">
           {companyService.subCategories.map((elem) => (
             <div className="space-y-4" key={elem._id}>
-              <ImageCarousel images={elem.images} />
+              <Image
+                alt={elem.images[0].alt}
+                className="rounded-lg"
+                height={902}
+                src={Sanity.buildImageUrl(elem.images[0].asset)}
+                width={644}
+              />
             </div>
           ))}
         </section>

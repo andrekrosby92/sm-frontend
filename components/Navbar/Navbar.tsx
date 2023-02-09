@@ -103,18 +103,24 @@ function ServicesMenu({
   return (
     <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
-        {services.map((elem) => (
-          <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
-            <a className="group flex flex-col items-center">
-              <span className="transition transform group-hover:scale-110">
-                <Image alt={elem.title} height={64} src={Sanity.buildImageUrl(elem.icon)} width={64} />
-              </span>
-              <span className="transition tracking-wide font-medium text-gray-800 group-hover:text-black">
-                {elem.title}
-              </span>
-            </a>
-          </Link>
-        ))}
+        {services.map((elem) => {
+          if (elem.slug.current === 'bird-free') {
+            return <Fragment />
+          }
+
+          return (
+            <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
+              <a className="group flex flex-col items-center">
+                <span className="transition transform group-hover:scale-110">
+                  <Image alt={elem.title} height={64} src={Sanity.buildImageUrl(elem.icon)} width={64} />
+                </span>
+                <span className="transition tracking-wide font-medium text-gray-800 group-hover:text-black">
+                  {elem.title}
+                </span>
+              </a>
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
@@ -176,16 +182,22 @@ function MobileNavigationMenu({
 function LinksList({ links }: { links: CompanyServiceMinimal[] }): JSX.Element {
   return (
     <Fragment>
-      {links.map((elem) => (
-        <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
-          <a className="flex justify-between items-center font-light text-xl text-primary">
-            <span>{elem.title}</span>
-            <svg className="w-5 h-5 fill-current currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z " />
-            </svg>
-          </a>
-        </Link>
-      ))}
+      {links.map((elem) => {
+        if (elem.slug.current === 'bird-free') {
+          return <Fragment />
+        }
+
+        return (
+          <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
+            <a className="flex justify-between items-center font-light text-xl text-primary">
+              <span>{elem.title}</span>
+              <svg className="w-5 h-5 fill-current currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z " />
+              </svg>
+            </a>
+          </Link>
+        )
+      })}
     </Fragment>
   )
 }

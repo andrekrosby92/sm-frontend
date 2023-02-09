@@ -6,6 +6,7 @@ import Sanity from 'services/Sanity'
 import SplitLayout from 'components/Layouts/SplitLayout'
 import TwoColumnLayout from 'components/Layouts/TwoColumnLayout'
 import { CompanyService } from 'types/company-service'
+import BirdFreeLayout from 'components/Layouts/BirdFreeLayout'
 
 export default function CompanyServiceDetail(props: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   switch (props.companyService.layout) {
@@ -14,6 +15,9 @@ export default function CompanyServiceDetail(props: InferGetStaticPropsType<type
 
     case 'two-column':
       return <TwoColumnLayout {...props} />
+
+    case 'bird-free':
+      return <BirdFreeLayout {...props} />
 
     default:
       return <Fragment />

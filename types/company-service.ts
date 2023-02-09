@@ -7,7 +7,7 @@ export interface CompanyService extends SanityElement {
   icon: SanityImage
   images?: SanityImage[]
   shortDescription: string
-  layout: 'split' | 'two-column'
+  layout: 'split' | 'two-column' | 'bird-free'
   slug: SanitySlug
   title: string
   subCategories?: CompanyServiceSubCategory[]

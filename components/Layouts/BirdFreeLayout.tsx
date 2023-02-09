@@ -6,23 +6,11 @@ import Sanity from 'services/Sanity'
 import { CompanyService } from 'types/company-service'
 import { SanityImage } from 'types/sanity'
 
-export default function TwoColumnLayout({ companyService }: { companyService: CompanyService }): JSX.Element {
+export default function BirdFreeLayout({ companyService }: { companyService: CompanyService }): JSX.Element {
   return (
     <article className="max-w-6xl w-full mx-auto px-6 md:px-8 xl:px-0 py-8 md:py-12">
       <h1 className="mb-4 md:mb-7 text-4xl xl:text-6xl font-semibold">{companyService.title}</h1>
-      {companyService.subCategories && (
-        <section className="grid md:grid-cols-2 gap-8">
-          {companyService.subCategories.map((elem) => (
-            <div className="space-y-4" key={elem._id}>
-              <ImageCarousel images={elem.images} />
-              <section className="prose xl:prose-md">
-                <h2 className="">{elem.title}</h2>
-                <BlockContent blocks={elem.content} />
-              </section>
-            </div>
-          ))}
-        </section>
-      )}
+      {companyService.images && <ImageCarousel images={companyService.images} />}
       {companyService.content && (
         <Fragment>
           <div className="my-12 flex justify-center space-x-4 text-lg">
@@ -32,6 +20,15 @@ export default function TwoColumnLayout({ companyService }: { companyService: Co
           </div>
           <BlockContent blocks={companyService.content} className="mx-auto prose" />
         </Fragment>
+      )}
+      {companyService.subCategories && (
+        <section className="grid md:grid-cols-2 gap-8">
+          {companyService.subCategories.map((elem) => (
+            <div className="space-y-4" key={elem._id}>
+              <ImageCarousel images={elem.images} />
+            </div>
+          ))}
+        </section>
       )}
     </article>
   )

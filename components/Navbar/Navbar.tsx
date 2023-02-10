@@ -104,10 +104,6 @@ function ServicesMenu({
     <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
         {services.map((elem) => {
-          if (elem.slug.current === 'bird-free') {
-            return <Fragment />
-          }
-
           return (
             <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
               <a className="group flex flex-col items-center">
@@ -183,10 +179,6 @@ function LinksList({ links }: { links: CompanyServiceMinimal[] }): JSX.Element {
   return (
     <Fragment>
       {links.map((elem) => {
-        if (elem.slug.current === 'bird-free') {
-          return <Fragment />
-        }
-
         return (
           <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
             <a className="flex justify-between items-center font-light text-xl text-primary">

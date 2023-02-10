@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-
 import SectionHeaderPrimary from 'components/SectionHeaders/SectionHeaderPrimary'
 import SectionWrapperPrimary from 'components/SectionWrappers/SectionWrapperPrimary'
 import { CompanyServiceMinimal } from 'types/company-service'
@@ -16,10 +14,6 @@ export default function CompanyServicesList({
       <SectionHeaderPrimary>Våre tjenester</SectionHeaderPrimary>
       <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
         {companyServices.map((elem) => {
-          if (elem.slug.current === 'bird-free') {
-            return <Fragment />
-          }
-
           return (
             <CompanyServiceItem
               icon={elem.icon}

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ReactNode } from 'react'
 
 import Sanity from 'services/Sanity'
 import { SanityImage } from 'types/sanity'
@@ -20,6 +21,19 @@ export const serializers = {
             width={16}
           />
         </figure>
+      )
+    },
+  },
+
+  marks: {
+    link: ({ mark, children }: { mark: { blank: boolean; href: string }; children: ReactNode }): JSX.Element => {
+      const { blank, href } = mark
+      return blank ? (
+        <a href={href} rel="noopener noreferrer" target="_blank">
+          {children}
+        </a>
+      ) : (
+        <a href={href}>{children}</a>
       )
     },
   },

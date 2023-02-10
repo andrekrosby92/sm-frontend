@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 
 import BlockContent from 'components/Sanity/BlockContent'
 import Sanity from 'services/Sanity'
 import { CompanyService } from 'types/company-service'
-import { SanityImage } from 'types/sanity'
 
 export default function BirdFreeLayout({ companyService }: { companyService: CompanyService }): JSX.Element {
   return (

@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import Icon from 'components/Icons/Icon'
 import { CompanyServiceMinimal } from 'types/company-service'
+import { hrefFromSlug } from 'utils/helpers'
 
 export default function Footer({ companyServices }: { companyServices: CompanyServiceMinimal[] }): JSX.Element {
   return (
@@ -20,7 +21,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
           <section>
             <div className="text-lg font-medium">Våre tjenester</div>
             {companyServices.map((elem) => (
-              <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
+              <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
                 <a className="block hover:underline">{elem.title}</a>
               </Link>
             ))}

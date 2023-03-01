@@ -3,9 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 
-import type { CompanyServiceMinimal } from 'types/company-service'
-import Sanity from 'services/Sanity'
 import Icon from 'components/Icons/Icon'
+
+import Sanity from 'services/Sanity'
+import type { CompanyServiceMinimal } from 'types/company-service'
+import { hrefFromSlug } from 'utils/helpers'
 
 import NavbarLogo from './NavbarLogo'
 import NavbarLink from './NavbarLink'
@@ -63,8 +65,14 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
           <NavbarLink path="/kontakt" text="Kontakt" />
         </div>
       </section>
-      <ServicesMenu displayMenu={displayServicesMenu} services={links} setDisplayMenu={setDisplayServicesMenu} />
-      <MobileNavigationMenu displayMenu={displayMobileMenu} links={links} />
+
+      <Fragment>
+        <ServicesMenu displayMenu={displayServicesMenu} services={links} setDisplayMenu={setDisplayServicesMenu} />
+      </Fragment>
+
+      <Fragment>
+        <MobileNavigationMenu displayMenu={displayMobileMenu} links={links} />
+      </Fragment>
     </nav>
   )
 }
@@ -104,8 +112,10 @@ function ServicesMenu({
     <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
         {services.map((elem) => {
+          const href = hrefFromSlug(elem.slug.current)
+
           return (
-            <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
+            <Link href={href} key={href}>
               <a className="group flex flex-col items-center">
                 <span className="transition transform group-hover:scale-110">
                   <Image alt={elem.title} height={64} src={Sanity.buildImageUrl(elem.icon)} width={64} />
@@ -144,8 +154,12 @@ function MobileNavigationMenu({
         <div className="space-y-5 flex flex-col">
           <Fragment>
             <h2 className="font-light text-2xl text-primary">Våre tjenester</h2>
-            <LinksList links={links} />
+            <Fragment>
+              <LinksList links={links} />
+            </Fragment>
+
             <hr className="border-t border-primary/75" />
+
             <Link href="/nyheter">
               <a className="font-light text-xl text-primary">Nyheter</a>
             </Link>
@@ -162,6 +176,7 @@ function MobileNavigationMenu({
               <a className="font-light text-xl text-primary">Kontakt</a>
             </Link>
           </Fragment>
+
           <section className="max-w-max mx-auto py-8 space-x-4 flex text-primary">
             {(['facebook'] as const).map((elem) => (
               <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary" key={elem}>
@@ -179,8 +194,10 @@ function LinksList({ links }: { links: CompanyServiceMinimal[] }): JSX.Element {
   return (
     <Fragment>
       {links.map((elem) => {
+        const href = hrefFromSlug(elem.slug.current)
+
         return (
-          <Link href={`/tjenester/${elem.slug.current}`} key={elem.slug.current}>
+          <Link href={href} key={href}>
             <a className="flex justify-between items-center font-light text-xl text-primary">
               <span>{elem.title}</span>
               <svg className="w-5 h-5 fill-current currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

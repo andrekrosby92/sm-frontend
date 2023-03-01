@@ -16,3 +16,11 @@ export function pick<T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> {
     return { ...acc, [currValue]: obj[currValue] }
   }, {} as Pick<T, K>)
 }
+
+export function hrefFromSlug(slug: string): string {
+  if (slug === 'bird-free') {
+    return `https://www.bird-free.no`
+  } else {
+    return `/tjenester/${slug}`
+  }
+}

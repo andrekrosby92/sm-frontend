@@ -5,6 +5,7 @@ import { a, to, useSpring } from '@react-spring/web'
 import Icon from 'components/Icons/Icon'
 import Sanity from 'services/Sanity'
 import { SanityImage } from 'types/sanity'
+import { hrefFromSlug } from 'utils/helpers'
 
 export default function CompanyServiceItem({
   slug,
@@ -17,6 +18,8 @@ export default function CompanyServiceItem({
   icon: SanityImage
   shortDescription: string
 }): JSX.Element {
+  const href = hrefFromSlug(slug)
+
   const [{ scale, x }, api] = useSpring(() => ({
     config: { mass: 1, tension: 500, friction: 12 },
     scale: 1,
@@ -30,7 +33,7 @@ export default function CompanyServiceItem({
   }
 
   return (
-    <Link href={`/tjenester/${slug}`}>
+    <Link href={href}>
       <a className="relative p-6 xl:py-8">
         <a.div className="group absolute inset-0 hidden xl:flex rounded-xl shadow-light overflow-hidden" {...transform}>
           <button className="w-full mt-auto h-14 border-t border-gray-100 bg-gradient-to-tl from-primary to-primary-light text-primary-darker">

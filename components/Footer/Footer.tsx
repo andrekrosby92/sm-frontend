@@ -13,10 +13,15 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
           <section>
             <span className="block font-semibold text-2xl">Skiltmakeren AS</span>
             <span className="block">Vi kan skilt og dekor.</span>
-            <div className="mt-4">
-              <Image alt="Miljøfyrtårn" height={58} src="/images/miljøfyrtårn.png" width={70} />
+            <div className="flex items-center space-x-4">
+              <div className="mt-4">
+                <Image alt="Miljøfyrtårn" height={53} src="/images/miljøfyrtårn-logo.png" width={67} />
+              </div>
+              <div className="mt-4">
+                <Image alt="Startbank" height={32} src="/images/startbank-logo-hvit.png" width={165} />
+              </div>
             </div>
-            <span className="text-xs font-light">&copy; Copyright 2021 &middot; Skiltmakeren AS</span>
+            <span className="text-xs font-light">&copy; Copyright 1994-2023 &middot; Skiltmakeren AS</span>
           </section>
           <section>
             <div className="text-lg font-medium">Våre tjenester</div>

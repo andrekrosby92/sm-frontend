@@ -33,6 +33,14 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
         <h1 className="mb-4 text-4xl xl:text-6xl font-semibold md:hidden">{data.title}</h1>
         <section className="order-2 md:order-1 mt-4 md:mt-0">
           <h1 className="mb-8 text-4xl xl:text-6xl font-semibold hidden md:block">{data.title}</h1>
+          <a
+            className="block mb-6 underline text-blue-500"
+            href="/documents/miljo-rapport-2022.pdf"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Klikk her for å se Skiltmakerens innrapportering for 2022
+          </a>
           <BlockContent blocks={data.content} className="prose xl:prose-lg" />
         </section>
         <div className="order-1 md:order-2 h-full flex flex-col">

@@ -1,49 +1,27 @@
 import type { GetStaticPropsResult, InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
 
 import type { CompanyServiceMinimal } from 'types/company-service'
 import type { Customer } from 'types/customer'
 import type { WhatWeDo } from 'types/what-we-do'
-import Sanity from 'services/Sanity'
-
 import CompanyServicesList from 'components/_pages/Home/CompanyServices/CompanyServicesList'
 import Contact from 'scenarios/contact/components/Contact'
 import Customers from 'components/_pages/Home/Customers/CustomersList'
 import Hero from 'components/_pages/Home/Hero/Hero'
+import SEO from 'components/SEO/SEO'
+import Sanity from 'services/Sanity'
 import WhatWeDoSection from 'components/_pages/Home/WhatWeDo/WhatWeDo'
-
-// prettier-ignore
-const seo = {
-  title: 'Skiltmakeren AS · Vi kan skilt og dekor.',
-  desc: "Skiltmaker med 30 års erfaring og over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service, og miljøfokus.",
-  descFacebook: "30 års erfaring og 700+ kunder. Din partner for skilt, bannere og bildekor.",
-  descTwitter: "30 års erfaring. Over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service og miljøfokus.",
-  metaImage: "/images/meta-image.png"
-}
 
 export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   return (
     <div className="space-y-6 xl:space-y-20">
-      <Head>
-        {/* Primary Meta Tags */}
-        <title>{seo.title}</title>
-        <meta content={seo.desc} name="description" />
-        <link href="https://www.skiltmakeren.no" rel="canonical" />
-
-        {/* Twitter */}
-        <meta content="summary_large_image" property="twitter:card" />
-        <meta content="https://www.skiltmakeren.no" property="twitter:url" />
-        <meta content={seo.title} property="twitter:title" />
-        <meta content={seo.descTwitter} property="twitter:description" />
-        <meta content={seo.metaImage} property="twitter:image" />
-
-        {/* Open Graph / Facebook */}
-        <meta content="website" property="og:type" />
-        <meta content="https://www.skiltmakeren.no" property="og:url" />
-        <meta content={seo.title} property="og:title" />
-        <meta content={seo.descFacebook} property="og:description" />
-        <meta content={seo.metaImage} property="og:image" />
-      </Head>
+      <SEO
+        description="Skiltmaker med 30 års erfaring og over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service, og miljøfokus."
+        descriptionFacebook="30 års erfaring og 700+ kunder. Din partner for skilt, bannere og bildekor."
+        descriptionTwitter="30 års erfaring. Over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service og miljøfokus."
+        metaImage="/images/meta-image.png"
+        title="Skiltmakeren AS · Vi kan skilt og dekor."
+        url="https://www.skiltmakeren.no"
+      />
 
       <Hero />
       <CompanyServicesList companyServices={props.companyServices} />

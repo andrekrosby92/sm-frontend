@@ -2,6 +2,7 @@ import type { GetStaticPropsResult, InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 
 import EmployeeCard from 'components/_pages/Employees/EmployeeCard'
+import SEO from 'components/SEO/SEO'
 import Sanity from 'services/Sanity'
 import SectionHeaderPrimary from 'components/SectionHeaders/SectionHeaderPrimary'
 import SectionWrapperPrimary from 'components/SectionWrappers/SectionWrapperPrimary'
@@ -10,6 +11,15 @@ import { Employee } from 'types/employee'
 export default function About({ employees }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   return (
     <div>
+      <SEO
+        description="Leverandør av skilt og bildekor siden 1992. Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
+        descriptionFacebook="Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
+        descriptionTwitter="Siden 1992 har vi levert personlig service, høy kvalitet og innovative løsninger."
+        metaImage="/images/meta-image.png"
+        title="Om oss - Skiltmakeren AS · Vi kan skilt og dekor."
+        url="https://www.skiltmakeren.no/om-oss"
+      />
+
       <div className="relative w-full h-[25vw]">
         <Image alt="Gramveien 16, 1832 Askim" layout="fill" objectFit="cover" src="/images/fasade.jpg" />
       </div>

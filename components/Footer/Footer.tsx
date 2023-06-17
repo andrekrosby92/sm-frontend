@@ -23,6 +23,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
             </div>
             <span className="text-xs font-light">&copy; Copyright 1994-2023 &middot; Skiltmakeren AS</span>
           </section>
+
           <section>
             <div className="text-lg font-medium">Våre tjenester</div>
             {companyServices.map((elem) => (
@@ -31,6 +32,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
               </Link>
             ))}
           </section>
+
           <section>
             <div className="text-lg font-medium">Kontakt oss</div>
             <address className="space-y-1 flex flex-col not-italic">
@@ -44,6 +46,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
               </div>
             </address>
           </section>
+
           <section className="hidden xl:block space-y-2">
             <div className="text-lg font-medium">Vi bruker kvalitetsprodukter fra:</div>
             <span className="block">
@@ -55,18 +58,21 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
                 width={137}
               />
             </span>
+
             <span className="block">
               <Image alt="3M Logo" height={45} src="/images/3m-logo.svg" unoptimized width={85} />
             </span>
           </section>
         </section>
+
         <section className="max-w-max mx-auto space-x-4 flex text-primary">
-          {(['facebook'] as const).map((elem) => (
-            <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary" key={elem}>
-              <Icon className="w-5 h-5" name={elem} />
-            </div>
-          ))}
+          <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary">
+            <a href="https://www.facebook.com/Skiltmakeren" rel="noreferrer" target="_blank">
+              <Icon className="w-5 h-5" name="facebook" />
+            </a>
+          </div>
         </section>
+
         <section className="xl:hidden space-y-2">
           <div className="text-lg font-medium">Vi bruker kvalitetsprodukter fra:</div>
           <span className="block">

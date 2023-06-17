@@ -15,7 +15,7 @@ export default function About({ employees }: InferGetStaticPropsType<typeof getS
         description="Leverandør av skilt og bildekor siden 1992. Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
         descriptionFacebook="Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
         descriptionTwitter="Siden 1992 har vi levert personlig service, høy kvalitet og innovative løsninger."
-        metaImage="/images/meta-image.png"
+        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
         title="Om oss - Skiltmakeren AS · Vi kan skilt og dekor."
         url="https://www.skiltmakeren.no/om-oss"
       />

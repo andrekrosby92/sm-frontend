@@ -17,7 +17,7 @@ export default function NewsArticlesList({
         description="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
         descriptionFacebook="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
         descriptionTwitter="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
-        metaImage="/images/meta-image.png"
+        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
         title="Nyheter - Skiltmakeren AS · Vi kan skilt og dekor."
         url="https://www.skiltmakeren.no/nyheter"
       />

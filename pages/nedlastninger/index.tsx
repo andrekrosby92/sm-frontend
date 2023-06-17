@@ -14,7 +14,7 @@ export default function Downloads({ downloads }: InferGetStaticPropsType<typeof 
         description="Få tilgang til omfattende dokumentsjon for nedlasting. Lett, raskt og brukervennlig - alltid oppdatert."
         descriptionFacebook="Få tilgang til omfattende dokumentsjon for nedlasting."
         descriptionTwitter="Få tilgang til omfattende dokumentsjon for nedlasting. Lett, raskt og brukervennlig."
-        metaImage="/images/meta-image.png"
+        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
         title="Nedlastninger og Dokumentasjon - Skiltmakeren AS · Vi kan skilt og dekor."
         url="https://www.skiltmakeren.no/nedlastninger"
       />

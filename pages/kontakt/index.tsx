@@ -10,7 +10,7 @@ export default function Contact(): JSX.Element {
         description="Trenger du skilt, bannere eller bildekor? Med 30 års erfaring og over 700 fornøyde kunder, tilbyr vi høy kvalitet, personlig service og har fokus på miljøet."
         descriptionFacebook="Trenger du skilt, bannere eller bildekor? Kontakt Skiltmakeren i dag!"
         descriptionTwitter="Trenger du skilt, bannere eller bildekor? Vi tilbyr høy kvalitet, personlig service og har fokus på miljøet."
-        metaImage="/images/meta-image.png"
+        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
         title="Kontakt oss - Skiltmakeren AS · Vi kan skilt og dekor."
         url="https://www.skiltmakeren.no/kontakt"
       />

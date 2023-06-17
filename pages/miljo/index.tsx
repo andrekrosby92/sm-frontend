@@ -34,7 +34,7 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
         description="Skiltmakeren fokuserer på miljøvern og bærekraft. Vi tar ansvar, utvikler miljøvennlige prosesser og stiller strenge etiske krav til våre leverandører."
         descriptionFacebook="Vi tar ansvar og fokuserer på miljøvern og bærekraft."
         descriptionTwitter="Vi tar ansvar, utvikler miljøvennlige prosesser og fokuserer på miljøvern og bærekraft."
-        metaImage="/images/meta-image-miljo.png"
+        metaImage="https://www.skiltmakeren.no/images/meta-image-miljo.png"
         title="Miljø - Skiltmakeren AS · Vi kan skilt og dekor."
         url="https://www.skiltmakeren.no/miljo"
       />

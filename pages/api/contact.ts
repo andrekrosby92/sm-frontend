@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await client.sendEmailWithTemplate({
       From: 'tech@skiltmakeren.no',
-      To: 'tech@skiltmakeren.no',
+      To: 'stian@skiltmakeren.no',
       TemplateId: 25640733,
       TemplateModel: {
         name: req.body.name,

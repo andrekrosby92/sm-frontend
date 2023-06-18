@@ -26,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email: req.body.email,
         message: req.body.message,
         company: req.body.company,
-        phone_number: req.body.company,
+        phone_number: req.body.phone_number,
       },
     })
 

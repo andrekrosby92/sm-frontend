@@ -36,7 +36,7 @@ export default function ContactForm(): JSX.Element {
   }
 
   const mutation = useMutation<ResponseData, ResponseError, typeof fields>((data) => {
-    return axios.post(`${process.env.NEXT_PUBLIC_API_URL}/submit-contact-form/`, data)
+    return axios.post('/api/contact', data)
   })
 
   const validateFields = useCallback((fields: typeof requiredFields): FormErrors<string> => {
@@ -153,10 +153,7 @@ export default function ContactForm(): JSX.Element {
       />
 
       {mutation.isSuccess && (
-        <MessageSuccess
-          header="Takk for meldingen!"
-          message="Vi setter pris på forespørselen og vil svare deg så raskt som mulig."
-        />
+        <MessageSuccess header="Takk for meldingen!" message="Vi vil svare deg så raskt som mulig." />
       )}
 
       <button

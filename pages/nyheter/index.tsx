@@ -14,12 +14,12 @@ export default function NewsArticlesList({
   return (
     <div>
       <SEO
+        canonicalUrl="https://www.skiltmakeren.no/nyheter"
         description="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
         descriptionFacebook="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
         descriptionTwitter="Bli oppdatert med de siste nyhetene fra Skiltmakeren."
-        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
-        title="Nyheter - Skiltmakeren AS · Vi kan skilt og dekor."
-        url="https://www.skiltmakeren.no/nyheter"
+        imageSource="https://www.skiltmakeren.no/images/meta-image.png"
+        title="Nyheter · Skiltmakeren AS"
       />
 
       <SectionWrapperPrimary className="space-y-6">

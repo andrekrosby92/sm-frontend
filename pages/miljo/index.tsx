@@ -31,12 +31,12 @@ export default function EnvironmentPage({ data }: InferGetStaticPropsType<typeof
   return (
     <div>
       <SEO
+        canonicalUrl="https://www.skiltmakeren.no/miljo"
         description="Skiltmakeren fokuserer på miljøvern og bærekraft. Vi tar ansvar, utvikler miljøvennlige prosesser og stiller strenge etiske krav til våre leverandører."
         descriptionFacebook="Vi tar ansvar og fokuserer på miljøvern og bærekraft."
         descriptionTwitter="Vi tar ansvar, utvikler miljøvennlige prosesser og fokuserer på miljøvern og bærekraft."
-        metaImage="https://www.skiltmakeren.no/images/meta-image-miljo.png"
-        title="Miljø - Skiltmakeren AS · Vi kan skilt og dekor."
-        url="https://www.skiltmakeren.no/miljo"
+        imageSource="https://www.skiltmakeren.no/images/meta-image-miljo.png"
+        title="Miljø · Skiltmakeren AS"
       />
 
       <article className="max-w-6xl w-full mx-auto px-6 md:px-8 xl:px-0 py-8 md:py-12">

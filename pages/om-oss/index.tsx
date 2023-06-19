@@ -12,12 +12,12 @@ export default function About({ employees }: InferGetStaticPropsType<typeof getS
   return (
     <div>
       <SEO
+        canonicalUrl="https://www.skiltmakeren.no/om-oss"
         description="Leverandør av skilt og bildekor siden 1992. Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
         descriptionFacebook="Vi tilbyr personlig service, høy kvalitet og innovative løsninger."
         descriptionTwitter="Siden 1992 har vi levert personlig service, høy kvalitet og innovative løsninger."
-        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
-        title="Om oss - Skiltmakeren AS · Vi kan skilt og dekor."
-        url="https://www.skiltmakeren.no/om-oss"
+        imageSource="https://www.skiltmakeren.no/images/meta-image.png"
+        title="Om oss · Skiltmakeren AS"
       />
 
       <div className="relative w-full h-[25vw]">

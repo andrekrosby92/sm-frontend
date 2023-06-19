@@ -1,27 +1,42 @@
 import type { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult, InferGetStaticPropsType } from 'next'
-
 import { Fragment } from 'react'
 
+import BirdFreeLayout from 'components/Layouts/BirdFreeLayout'
+import SEO from 'components/SEO/SEO'
 import Sanity from 'services/Sanity'
 import SplitLayout from 'components/Layouts/SplitLayout'
 import TwoColumnLayout from 'components/Layouts/TwoColumnLayout'
 import { CompanyService } from 'types/company-service'
-import BirdFreeLayout from 'components/Layouts/BirdFreeLayout'
 
 export default function CompanyServiceDetail(props: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-  switch (props.companyService.layout) {
-    case 'split':
-      return <SplitLayout {...props} />
+  const LayoutComponent = {
+    split: SplitLayout,
+    'two-column': TwoColumnLayout,
+    'bird-free': BirdFreeLayout,
+  }[props.companyService.layout]
 
-    case 'two-column':
-      return <TwoColumnLayout {...props} />
+  const { canonicalUrl, metaDescription, metaDescriptionFacebook, metaDescriptionTwitter, metaImageSource, metaTitle } =
+    props.companyService
 
-    case 'bird-free':
-      return <BirdFreeLayout {...props} />
-
-    default:
-      return <Fragment />
+  const seo = {
+    canonicalUrl,
+    description: metaDescription,
+    descriptionFacebook: metaDescriptionFacebook,
+    descriptionTwitter: metaDescriptionTwitter,
+    imageSource: Sanity.buildImageUrl(metaImageSource),
+    title: metaTitle,
   }
+
+  if (typeof LayoutComponent !== 'function') {
+    return <Fragment />
+  }
+
+  return (
+    <div>
+      <SEO {...seo} />
+      <LayoutComponent {...props} />
+    </div>
+  )
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult<{ slug: string }>> {
@@ -37,9 +52,9 @@ export async function getStaticProps(
   context: GetStaticPropsContext<{ slug: string }>,
 ): Promise<GetStaticPropsResult<{ companyService: CompanyService }>> {
   return {
+    revalidate: 30,
     props: {
       companyService: await Sanity.getCompanyServiceDetail(context.params?.slug),
     },
-    revalidate: 30,
   }
 }

@@ -15,12 +15,12 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
   return (
     <div className="space-y-6 xl:space-y-20">
       <SEO
+        canonicalUrl="https://www.skiltmakeren.no"
         description="Skiltmaker med 30 års erfaring og over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service, og miljøfokus."
         descriptionFacebook="30 års erfaring og 700+ kunder. Din partner for skilt, bannere og bildekor."
         descriptionTwitter="30 års erfaring. Over 700 fornøyde kunder. Din partner for skilt, bannere og bildekor med høy kvalitet, personlig service og miljøfokus."
-        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
+        imageSource="https://www.skiltmakeren.no/images/meta-image.png"
         title="Skiltmakeren AS · Vi kan skilt og dekor."
-        url="https://www.skiltmakeren.no"
       />
 
       <Hero />

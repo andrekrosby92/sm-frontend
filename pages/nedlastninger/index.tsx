@@ -11,12 +11,12 @@ export default function Downloads({ downloads }: InferGetStaticPropsType<typeof 
   return (
     <div>
       <SEO
+        canonicalUrl="https://www.skiltmakeren.no/nedlastninger"
         description="Få tilgang til omfattende dokumentsjon for nedlasting. Lett, raskt og brukervennlig - alltid oppdatert."
         descriptionFacebook="Få tilgang til omfattende dokumentsjon for nedlasting."
         descriptionTwitter="Få tilgang til omfattende dokumentsjon for nedlasting. Lett, raskt og brukervennlig."
-        metaImage="https://www.skiltmakeren.no/images/meta-image.png"
-        title="Nedlastninger og Dokumentasjon - Skiltmakeren AS · Vi kan skilt og dekor."
-        url="https://www.skiltmakeren.no/nedlastninger"
+        imageSource="https://www.skiltmakeren.no/images/meta-image.png"
+        title="Nedlastninger og dokumentasjon · Skiltmakeren AS"
       />
 
       <SectionWrapperPrimary className="space-y-4">

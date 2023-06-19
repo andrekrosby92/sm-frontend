@@ -3,14 +3,20 @@ import { SanityBlock, SanityElement, SanityImage, SanitySlug } from './sanity'
 
 export interface CompanyService extends SanityElement {
   _type: 'company-service'
+  canonicalUrl?: string
   content?: SanityBlock[]
   icon: SanityImage
   images?: SanityImage[]
-  shortDescription: string
   layout: 'split' | 'two-column' | 'bird-free'
+  metaDescription: string
+  metaDescriptionFacebook: string
+  metaDescriptionTwitter: string
+  metaImageSource: string
+  metaTitle: string
+  shortDescription: string
   slug: SanitySlug
-  title: string
   subCategories?: CompanyServiceSubCategory[]
+  title: string
 }
 
 export type CompanyServiceMinimal = Pick<CompanyService, 'icon' | 'shortDescription' | 'slug' | 'title'>

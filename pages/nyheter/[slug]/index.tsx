@@ -35,7 +35,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult<{ slug: str
 
   return {
     paths: res.map((elem) => ({ params: { slug: elem.slug.current } })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

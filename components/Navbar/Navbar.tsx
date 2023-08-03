@@ -58,10 +58,10 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
         </button>
         <div className="hidden xl:block space-x-8">
           <NavbarLink onClick={() => setDisplayServicesMenu(!displayServicesMenu)} path="/tjenester" text="Tjenester" />
-          <NavbarLink path="/nyheter" text="Nyheter" />
-          <NavbarLink path="/nedlastninger" text="Nedlastninger" />
           <NavbarLink path="/miljo" text="Miljø" />
+          <NavbarLink path="/nedlastninger" text="Nedlastninger" />
           <NavbarLink path="/om-oss" text="Om oss" />
+          <NavbarLink path="/nyheter" text="Nyheter" />
           <NavbarLink path="/kontakt" text="Kontakt" />
         </div>
       </section>
@@ -160,17 +160,17 @@ function MobileNavigationMenu({
 
             <hr className="border-t border-primary/75" />
 
-            <Link href="/nyheter">
-              <a className="font-light text-xl text-primary">Nyheter</a>
+            <Link href="/miljo">
+              <a className="font-light text-xl text-primary">Miljø</a>
             </Link>
             <Link href="/nedlastninger">
               <a className="font-light text-xl text-primary">Nedlastninger</a>
             </Link>
-            <Link href="/miljo">
-              <a className="font-light text-xl text-primary">Miljø</a>
-            </Link>
             <Link href="/om-oss">
               <a className="font-light text-xl text-primary">Om oss</a>
+            </Link>
+            <Link href="/nyheter">
+              <a className="font-light text-xl text-primary">Nyheter</a>
             </Link>
             <Link href="/kontakt">
               <a className="font-light text-xl text-primary">Kontakt</a>
@@ -178,11 +178,11 @@ function MobileNavigationMenu({
           </Fragment>
 
           <section className="max-w-max mx-auto py-8 space-x-4 flex text-primary">
-            {(['facebook'] as const).map((elem) => (
-              <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary" key={elem}>
-                <Icon className="w-5 h-5" name={elem} />
-              </div>
-            ))}
+            <div className="flex justify-center items-center w-12 h-12 rounded-full border border-primary">
+              <a href="https://www.facebook.com/Skiltmakeren" rel="noreferrer" target="_blank">
+                <Icon className="w-5 h-5" name="facebook" />
+              </a>
+            </div>
           </section>
         </div>
       </nav>

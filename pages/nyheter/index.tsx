@@ -11,6 +11,10 @@ import { NewsArticle } from 'types/news-article'
 export default function NewsArticlesList({
   newsArticles,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+  const sortedNewsArticles = newsArticles.sort((a, b) => {
+    return new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
+  })
+
   return (
     <div>
       <SEO
@@ -25,7 +29,7 @@ export default function NewsArticlesList({
       <SectionWrapperPrimary className="space-y-6">
         <SectionHeaderPrimary>Nyheter</SectionHeaderPrimary>
         <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {newsArticles.map((elem) => (
+          {sortedNewsArticles.map((elem) => (
             <Link href={`/nyheter/${elem.slug.current}`} key={elem._id}>
               <a className="block space-y-1">
                 <div className="relative h-48">

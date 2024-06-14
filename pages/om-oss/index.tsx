@@ -21,7 +21,7 @@ export default function About({ employees }: InferGetStaticPropsType<typeof getS
       />
 
       <div className="relative w-full h-[25vw]">
-        <Image alt="Gramveien 16, 1832 Askim" layout="fill" objectFit="cover" src="/images/fasade.jpg" />
+        <Image alt="Gramveien 31, 1832 Askim" layout="fill" objectFit="cover" src="/images/fasade.jpg" />
       </div>
       <SectionWrapperPrimary className="space-y-12">
         <section className="space-y-4">

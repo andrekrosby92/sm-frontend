@@ -41,7 +41,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
                 <span>+47 23 14 14 14</span>
               </div>
               <div className="flex flex-col">
-                <span>Gramveien 16</span>
+                <span>Gramveien 31</span>
                 <span>1832 Askim, Norge</span>
               </div>
             </address>

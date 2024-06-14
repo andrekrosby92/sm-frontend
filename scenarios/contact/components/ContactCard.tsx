@@ -24,7 +24,7 @@ export default function ContactCard(): JSX.Element {
         <span className="space-x-3 flex">
           <Icon className="w-6 h-6" name="map-marker" />
           <span className="flex flex-col">
-            <span className="font-light">Gramveien 16</span>
+            <span className="font-light">Gramveien 31</span>
             <span className="font-light">1832 Askim, Norge</span>
           </span>
         </span>

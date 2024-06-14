@@ -21,7 +21,7 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
                 <Image alt="Startbank" height={32} src="/images/startbank-logo-hvit.png" width={165} />
               </div>
             </div>
-            <span className="text-xs font-light">&copy; Copyright 1994-2023 &middot; Skiltmakeren AS</span>
+            <span className="text-xs font-light">&copy; Copyright 1994-2024 &middot; Skiltmakeren AS</span>
           </section>
 
           <section>

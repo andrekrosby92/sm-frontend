@@ -16,12 +16,12 @@ export default function Bildekor(): JSX.Element {
         title="Bildekor & Helfoliering · Skiltmakeren AS"
       />
 
-      <div className="w-[calc(100vw-32px)] md:w-[calc(100vw-128px)] xl:max-w-6xl mx-auto mt-[24px] *** pb-24 xl:pr-80">
+      <div className="w-[calc(100vw-32px)] md:w-[calc(100vw-128px)] xl:max-w-6xl mx-auto mt-[24px] *** pb-24 xl:pr-80 text-[#231F20]">
         <div>
           <div className="text-[13px] font-medium text-primary">VÅRE TJENESTER</div>
           <h1 className="mt-4 xl:mt-6 mb-2 text-4xl md:text-5xl font-semibold">Bildekor</h1>
           <DividerFaded />
-          <p className="mt-4 xl:mt-6 text-xl leading-[32px] text-[#222]">
+          <p className="mt-4 xl:mt-6 text-xl leading-[32px] xl:text-2xl xl:leading-[36px]">
             Bildekor er en av de mest effektive måtene å profilere din bedrift på. Med profesjonell firmadekor får du
             rullende reklame som blir lagt merke til.
           </p>
@@ -39,7 +39,7 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-10">
           <h2 className="text-3xl md:text-4xl font-medium">Bli synlig</h2>
-          <div className="mt-4 leading-7 text-[#333] space-y-4">
+          <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p>
               Dekorering av kjøretøy gjør deg mer synlig både i trafikken og når kjøretøyet står parkert. Flere og flere
               firmaer bruker bildekor som et virkemiddel til å kommunisere sitt budskap og gjøre effektiv bruk av
@@ -54,7 +54,7 @@ export default function Bildekor(): JSX.Element {
           </div>
           <div>
             <h3 className="mt-6 text-2xl md:text-3xl">Fordeler med bildekor</h3>
-            <div className="mt-4 leading-7 text-[#333] space-y-4">
+            <div className="mt-4 md:text-lg leading-7 space-y-4">
               <p>
                 <b>Kostnadseffektiv markedsføring</b> - Bildekor gir langsiktig reklame uten løpende kostnader, i
                 motsetning til digitale eller trykte annonser.
@@ -77,7 +77,7 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-10">
           <h2 className="text-3xl md:text-4xl font-medium">Firmadekor på bil</h2>
-          <div className="mt-4 leading-7 text-[#333] space-y-4">
+          <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p className="">
               Gjør bilen synlig for potensielle kunder enten du er på en arbeidsplass, kjører på veien eller står
               parkert hjemme.
@@ -97,7 +97,7 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-10">
           <h2 className="text-3xl md:text-4xl font-medium">Helfoliering</h2>
-          <div className="mt-4 leading-7 text-[#333] space-y-4">
+          <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p className="">
               Når du helfolierer bilen beskytter du lakken og sørger for at mindre riper og skader ikke påvirker
               annenhåndsverdien.
@@ -121,7 +121,7 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-10">
           <h2 className="text-3xl md:text-4xl font-medium">Hvorfor velge Skiltmakeren?</h2>
-          <div className="mt-4 leading-7 text-[#333] space-y-4">
+          <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p className="">
               Vi har dekorert flere tusen kjøretøy og har modeller av alle populærer personbiler og varebiler slik at
               skissene gir et godt inntrykk av hvordan bildekor tar seg ut på akkurat ditt kjøretøy. Våre dyktige
@@ -143,7 +143,7 @@ export default function Bildekor(): JSX.Element {
           </div>
           <div>
             <h3 className="mt-6 text-2xl md:text-3xl">Prosessen fra design til ferdigmontert dekor</h3>
-            <div className="mt-4 leading-7 text-[#333] space-y-4">
+            <div className="mt-4 md:text-lg leading-7 space-y-4">
               <p>
                 <b>1. Design</b> - Vi utvikler et skreddersydd design basert på din bedrifts profil og ønsker. Dette
                 inkluderer fargevalg, logo, grafikk og budskap som formidler din merkevare på en effektiv måte.
@@ -171,7 +171,7 @@ export default function Bildekor(): JSX.Element {
 
           <div>
             <h3 className="mt-6 text-2xl md:text-3xl">Rask levering og profesjonell service</h3>
-            <div className="mt-4 mb-6 leading-7 text-[#333] space-y-4">
+            <div className="mt-4 mb-6 md:text-lg leading-7 space-y-4">
               <p>
                 Kontakt oss for et uforpliktende tilbud, så hjelper vi deg med å skape en bilreklame som gir resultater!
               </p>

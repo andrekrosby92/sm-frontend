@@ -23,7 +23,7 @@ export default function Bildekor(): JSX.Element {
           <DividerFaded />
           <p className="mt-4 xl:mt-6 text-xl leading-[32px] text-[#222]">
             Bildekor er en av de mest effektive måtene å profilere din bedrift på. Med profesjonell firmadekor får du
-            rullende reklame som skaper oppmerksomhet døgnet rundt.
+            rullende reklame som blir lagt merke til.
           </p>
 
           <div className="mt-8 mx-[-16px] md:mx-auto">
@@ -83,8 +83,8 @@ export default function Bildekor(): JSX.Element {
               parkert hjemme.
             </p>
             <p className="">
-              Logo på bilen er en rimelig investering sammenlignet med andre former for markedsføring. Ingen løpende
-              kostnader og dekoren varer i mange år.
+              Logo på bilen er en rimelig investering sammenlignet med andre former for markedsføring. Det er ingen
+              løpende kostnader og dekoren varer ofte lenger enn kjøretøyet.
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Bildekor(): JSX.Element {
               annenhåndsverdien.
             </p>
             <p className="">
-              Mange ønsker å utrykke sin personlighet gjennom bilens farge og helfoliering, også kjent som vinyl eller
+              Mange ønsker å utrykke sin personlighet gjennom bilens farge. Helfoliering, også kjent som vinyl eller
               wrapping, er et svært kostandseffektivt alternativ i motsetning til lakkering.
             </p>
             <p>

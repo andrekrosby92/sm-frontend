@@ -30,7 +30,7 @@ export default function Bildekor(): JSX.Element {
             <img
               alt="Hvite firmabiler med bildekor"
               className="w-full h-[192px] md:h-[400px] object-cover"
-              src="https://www.skiltmakeren.no/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fet9is1el%2Fproduction%2Fb867c6138094f38e97965a657d7f339087d49ad3-3025x4033.jpg&w=3840&q=75"
+              src="/images/elektrotjenesten.png"
             />
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function Bildekor(): JSX.Element {
           <img
             alt="Hvit firmabil med bildekor"
             className="w-full h-[192px] md:h-[400px] object-cover"
-            src="https://www.skiltmakeren.no/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fet9is1el%2Fproduction%2F689fcf64a51d6c4047149f6c7a916944d386dbe5-3025x2269.jpg&w=1080&q=75"
+            src="/images/firmalogo.png"
           />
         </div>
 
@@ -117,7 +117,7 @@ export default function Bildekor(): JSX.Element {
           <img
             alt="Personbil med helfoliering"
             className="w-full h-[192px] md:h-[400px] object-cover"
-            src="https://scontent.fsvg1-1.fna.fbcdn.net/v/t39.30808-6/461279760_1079214870873090_7035849518513902949_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=OUwLXa1ygV0Q7kNvgEi4jMn&_nc_oc=AdgI7hiSG9iP47DQEOKE233oUJowFpo1jwgoczYNv1Uw1Nv0fnc2mGJKWgueMBFd2-o&_nc_zt=23&_nc_ht=scontent.fsvg1-1.fna&_nc_gid=A2CJMtpJi-8EpT_iOxYpkAr&oh=00_AYCFuNNFDDDXoQZsGNGAvKBTwHEtfd5rrFBSS10bdx2Gxg&oe=67B8ADE0"
+            src="/images/bmw-green.png"
           />
         </div>
 
@@ -169,7 +169,7 @@ export default function Bildekor(): JSX.Element {
             <img
               alt="Svart firmabil med bildekor"
               className="w-full h-[192px] md:h-[400px] object-cover"
-              src="https://scontent.fsvg1-1.fna.fbcdn.net/v/t39.30808-6/433622450_932865018841410_6588732831492443927_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=w3Tgv6__aIUQ7kNvgEgkayE&_nc_oc=Adie8GgsS6Lpnr3-ssWeMdztpuoJsXyt_7bVey1ZM2B0YeyEirHc6zZwzP4kBSTUzmE&_nc_zt=23&_nc_ht=scontent.fsvg1-1.fna&_nc_gid=AaygO4TqLUGtqej3fmgEs0N&oh=00_AYAWLpIUD34p8qhpmaXGJ0MHSiFouQNgKbC9Q9lnoB_OXA&oe=67B8C8BA"
+              src="/images/gf.png"
             />
           </div>
 

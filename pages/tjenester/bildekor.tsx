@@ -123,9 +123,9 @@ export default function Bildekor(): JSX.Element {
           <h2 className="text-3xl md:text-4xl font-medium">Hvorfor velge Skiltmakeren?</h2>
           <div className="mt-4 leading-7 text-[#333] space-y-4">
             <p className="">
-              Vi har dekorert flere tusen kjøretøy og har modeller av alle populærer personbiler slik at skissene gir et
-              godt inntrykk av hvordan bildekor tar seg ut på akkurat ditt kjøretøy. Våre dyktige designere hjelper deg
-              også med logoer, plassering og skreddersydde uttrykk.
+              Vi har dekorert flere tusen kjøretøy og har modeller av alle populærer personbiler og varebiler slik at
+              skissene gir et godt inntrykk av hvordan bildekor tar seg ut på akkurat ditt kjøretøy. Våre dyktige
+              designere hjelper deg også med logoer, plassering og skreddersydde uttrykk.
             </p>
             <p className="">
               Skiltmakeren har et landsdekkende montasjenettverk og utfører oppdrag over hele landet. Vi benytter kun
@@ -134,7 +134,7 @@ export default function Bildekor(): JSX.Element {
             <p>
               Både store og små bedrifter har brukt vår ekspertise til å markesføre sin merkevare på veien, blant annet:
             </p>
-            <ul className="pl-2 list-disc list-inside space-y-1">
+            <ul className="pl-2 list-disc list-inside marker:text-primary space-y-1">
               <li>Bring</li>
               <li>Ruter</li>
               <li>Würth Norge</li>

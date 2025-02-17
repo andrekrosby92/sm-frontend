@@ -26,7 +26,7 @@ export default function Bildekor(): JSX.Element {
             rullende reklame som skaper oppmerksomhet døgnet rundt.
           </p>
 
-          <div className="mt-8 mx-[-32px]">
+          <div className="mt-8 mx-[-32px] md:mx-auto">
             <img
               alt="Hvite firmabiler med bildekor"
               className="w-full h-[192px] md:h-[400px] object-cover"
@@ -87,7 +87,7 @@ export default function Bildekor(): JSX.Element {
           </div>
         </div>
 
-        <div className="mt-8 mx-[-32px]">
+        <div className="mt-8 mx-[-32px] md:mx-auto">
           <img
             alt="Hvit firmabil med bildekor"
             className="w-full h-[192px] md:h-[400px] object-cover"
@@ -113,7 +113,7 @@ export default function Bildekor(): JSX.Element {
           </div>
         </div>
 
-        <div className="mt-8 mx-[-32px]">
+        <div className="mt-8 mx-[-32px] md:mx-auto">
           <img
             alt="Personbil med helfoliering"
             className="w-full h-[192px] md:h-[400px] object-cover"
@@ -165,7 +165,7 @@ export default function Bildekor(): JSX.Element {
             </div>
           </div>
 
-          <div className="mt-8 mx-[-32px]">
+          <div className="mt-8 mx-[-32px] md:mx-auto">
             <img
               alt="Svart firmabil med bildekor"
               className="w-full h-[192px] md:h-[400px] object-cover"

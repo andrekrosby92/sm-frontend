@@ -19,19 +19,21 @@ export default function Bildekor(): JSX.Element {
       <div className="w-[calc(100vw-32px)] md:w-[calc(100vw-128px)] xl:max-w-6xl mx-auto mt-[24px] *** pb-24 xl:pr-80">
         <div>
           <div className="text-[13px] font-medium text-primary">VÅRE TJENESTER</div>
-          <h1 className="mt-4 mb-2 text-4xl md:text-5xl font-semibold">Bildekor</h1>
+          <h1 className="mt-4 xl:mt-6 mb-2 text-4xl md:text-5xl font-semibold">Bildekor</h1>
           <DividerFaded />
-          <p className="mt-4 text-xl leading-[32px] text-[#222]">
+          <p className="mt-4 xl:mt-6 text-xl leading-[32px] text-[#222]">
             Bildekor er en av de mest effektive måtene å profilere din bedrift på. Med profesjonell firmadekor får du
             rullende reklame som skaper oppmerksomhet døgnet rundt.
           </p>
 
           <div className="mt-8 mx-[-16px] md:mx-auto">
-            <img
-              alt="Hvite firmabiler med bildekor"
-              className="w-full h-[192px] md:h-[400px] object-cover"
-              src="/images/elektrotjenesten.png"
-            />
+            <span className="relative w-full pb-[56.25%]">
+              <img
+                alt="Hvite firmabiler med bildekor"
+                className="w-full object-cover"
+                src="/images/elektrotjenesten.png"
+              />
+            </span>
           </div>
         </div>
 
@@ -88,11 +90,9 @@ export default function Bildekor(): JSX.Element {
         </div>
 
         <div className="mt-8 mx-[-16px] md:mx-auto">
-          <img
-            alt="Hvit firmabil med bildekor"
-            className="w-full h-[192px] md:h-[400px] object-cover"
-            src="/images/firmalogo.png"
-          />
+          <span className="relative w-full pb-[56.25%]">
+            <img alt="Hvit firmabil med bildekor" className="w-full object-cover" src="/images/firmalogo.png" />
+          </span>
         </div>
 
         <div className="mt-10">
@@ -114,11 +114,9 @@ export default function Bildekor(): JSX.Element {
         </div>
 
         <div className="mt-8 mx-[-16px] md:mx-auto">
-          <img
-            alt="Personbil med helfoliering"
-            className="w-full h-[192px] md:h-[400px] object-cover"
-            src="/images/bmw-green.png"
-          />
+          <span className="relative w-full pb-[56.25%]">
+            <img alt="Personbil med helfoliering" className="w-full object-cover" src="/images/bmw-green-2.png" />
+          </span>
         </div>
 
         <div className="mt-10">
@@ -166,11 +164,9 @@ export default function Bildekor(): JSX.Element {
           </div>
 
           <div className="mt-8 mx-[-16px] md:mx-auto">
-            <img
-              alt="Svart firmabil med bildekor"
-              className="w-full h-[192px] md:h-[400px] object-cover"
-              src="/images/gf.png"
-            />
+            <span className="relative w-full pb-[56.25%]">
+              <img alt="Svart firmabil med bildekor" className="w-full object-cover" src="/images/gf-2.png" />
+            </span>
           </div>
 
           <div>

@@ -85,7 +85,7 @@ export default function Bildekor(): JSX.Element {
             <p className="">
               Logo på bilen er en rimelig investering sammenlignet med andre former for markedsføring. Det er ingen
               løpende kostnader og dekoren varer ofte lenger enn kjøretøyet. Vi tilbyr også kampanjefolie med kortere
-              holdbarhet, som er lettere å ta av.
+              holdbarhet, som er letter å ta av.
             </p>
           </div>
         </div>

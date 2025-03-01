@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Fragment } from 'react'
+
 import Icon from 'components/Icons/Icon'
 import { CompanyServiceMinimal } from 'types/company-service'
 import { hrefFromSlug } from 'utils/helpers'
@@ -26,11 +28,29 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
 
           <section>
             <div className="text-lg font-medium">Våre tjenester</div>
-            {companyServices.map((elem) => (
-              <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
-                <a className="block hover:underline">{elem.title}</a>
-              </Link>
-            ))}
+            {companyServices.map((elem) => {
+              if (elem.title == 'Kjøretøydekor') {
+                return (
+                  <Fragment key={elem.slug.current}>
+                    <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
+                      <a className="block hover:underline">{elem.title}</a>
+                    </Link>
+
+                    <span className="block ml-4">
+                      <Link href={hrefFromSlug('bildekor')} key={elem.slug.current}>
+                        <a className="block hover:underline text-[13px]">Bildekor</a>
+                      </Link>
+                    </span>
+                  </Fragment>
+                )
+              } else {
+                return (
+                  <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
+                    <a className="block hover:underline">{elem.title}</a>
+                  </Link>
+                )
+              }
+            })}
           </section>
 
           <section>

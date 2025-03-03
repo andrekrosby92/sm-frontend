@@ -87,7 +87,7 @@ export default function Bildekor(): JSX.Element {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-6">
           <h2 className="text-3xl md:text-4xl font-medium">Firmadekor på bil</h2>
           <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p className="">
@@ -123,7 +123,7 @@ export default function Bildekor(): JSX.Element {
           </span>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-6">
           <h2 className="text-3xl md:text-4xl font-medium">Helfoliering</h2>
           <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p className="">

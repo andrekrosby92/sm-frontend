@@ -1,7 +1,10 @@
 import { Fragment } from 'react'
 
-import DividerFaded from 'components/Dividers/DividerFaded'
+import Image from 'next/image'
+
 import ContactForm from 'scenarios/contact/components/ContactForm'
+import DividerFaded from 'components/Dividers/DividerFaded'
+import ImageCarousel from 'components/ImageCarousel/ImageCarousel'
 import SEO from 'components/SEO/SEO'
 
 export default function Bildekor(): JSX.Element {
@@ -27,18 +30,27 @@ export default function Bildekor(): JSX.Element {
           </p>
 
           <div className="mt-8 mx-[-16px] md:mx-auto">
-            <span className="relative w-full pb-[56.25%]">
-              <img
-                alt="Hvite firmabiler med bildekor"
-                className="w-full object-cover"
-                src="/images/elektrotjenesten.png"
-              />
-            </span>
+            <ImageCarousel
+              images={[
+                {
+                  src: '/images/bildekor-to-hvite-elektriske-varebiler.jpg',
+                  alt: 'To hvite varebilder med blå firmadekor',
+                },
+                {
+                  src: '/images/bildekor-hvite-biler.jpg',
+                  alt: 'Hvite biler med firmadekor',
+                },
+                {
+                  src: '/images/bildekor-hvit-bil.jpg',
+                  alt: 'Hvit bil med bildekor',
+                },
+              ]}
+            />
           </div>
         </div>
 
-        <div className="mt-10">
-          <h2 className="text-3xl md:text-4xl font-medium">Bli synlig</h2>
+        <div className="mt-6">
+          <h2 className="text-3xl md:text-4xl font-medium">Bildekor gjør deg synlig</h2>
           <div className="mt-4 md:text-lg leading-7 space-y-4">
             <p>
               Dekorering av kjøretøy gjør deg mer synlig både i trafikken og når kjøretøyet står parkert. Flere og flere
@@ -92,7 +104,22 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-8 mx-[-16px] md:mx-auto">
           <span className="relative w-full pb-[56.25%]">
-            <img alt="Hvit firmabil med bildekor" className="w-full object-cover" src="/images/firmalogo.png" />
+            <ImageCarousel
+              images={[
+                {
+                  src: '/images/bildekor-firmadekor-hvit-bil.jpg',
+                  alt: 'Hvit bil med firmadekor',
+                },
+                {
+                  src: '/images/bildekor-firmadekor-svart-varebil.jpg',
+                  alt: 'Svart varebil med firmadekor',
+                },
+                {
+                  src: '/images/bildekor-firmadekor-gra-varebil-detalj.jpg',
+                  alt: 'Detaljefoto av en grå varebil med blå firmadekor',
+                },
+              ]}
+            />
           </span>
         </div>
 
@@ -116,7 +143,22 @@ export default function Bildekor(): JSX.Element {
 
         <div className="mt-8 mx-[-16px] md:mx-auto">
           <span className="relative w-full pb-[56.25%]">
-            <img alt="Personbil med helfoliering" className="w-full object-cover" src="/images/bmw-green-2.png" />
+            <ImageCarousel
+              images={[
+                {
+                  src: '/images/bildekor-helfoliering-gronn-bil-bmw.jpg',
+                  alt: 'Grønn BMW med helfoliering',
+                },
+                {
+                  src: '/images/bildekor-helfoliering-svart-bil.jpg',
+                  alt: 'Svart bil med helfoliering',
+                },
+                {
+                  src: '/images/bildekor-helfoliering-gronn-bil-hyundai.jpg',
+                  alt: 'Grønn Hyundai med helfoliering',
+                },
+              ]}
+            />
           </span>
         </div>
 
@@ -165,13 +207,18 @@ export default function Bildekor(): JSX.Element {
           </div>
 
           <div className="mt-8 mx-[-16px] md:mx-auto">
-            <span className="relative w-full pb-[56.25%]">
-              <img alt="Svart firmabil med bildekor" className="w-full object-cover" src="/images/gf-2.png" />
-            </span>
+            <div className="relative w-full pb-[56.25%]">
+              <Image
+                alt="Folieruller"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                layout="fill"
+                src="/images/profesjonell-service.jpg"
+              />
+            </div>
           </div>
 
           <div>
-            <h3 className="mt-6 text-2xl md:text-3xl">Rask levering og profesjonell service</h3>
+            <h3 className="mt-8 text-2xl md:text-3xl">Rask levering og profesjonell service</h3>
             <div className="mt-4 mb-6 md:text-lg leading-7 space-y-4">
               <p>
                 Kontakt oss for et uforpliktende tilbud, så hjelper vi deg med å skape en bilreklame som gir resultater!

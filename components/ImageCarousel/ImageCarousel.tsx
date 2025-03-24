@@ -55,8 +55,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImage
 
     setIsTransitioning(true)
     setCurrentIndex((prev) => prev - 1)
-
-    // Reset transition state after animation completes
     setTimeout(() => setIsTransitioning(false), 175)
   }
 
@@ -67,8 +65,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImage
 
     setIsTransitioning(true)
     setCurrentIndex((prev) => prev + 1)
-
-    // Reset transition state after animation completes
     setTimeout(() => setIsTransitioning(false), 175)
   }, [isTransitioning])
 
@@ -79,8 +75,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImage
 
     setIsTransitioning(true)
     setCurrentIndex(slideIndex)
-
-    // Reset transition state after animation completes
     setTimeout(() => setIsTransitioning(false), 175)
   }
 

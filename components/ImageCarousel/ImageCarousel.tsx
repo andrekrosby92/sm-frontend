@@ -7,6 +7,7 @@ interface ImageAttributes {
 }
 
 interface ImageCarouselProps {
+  priority?: boolean
   images?: ImageAttributes[]
 }
 
@@ -25,7 +26,7 @@ const placeholderImages = [
   },
 ]
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImages }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImages, priority = false }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false)
 
@@ -94,6 +95,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = placeholderImage
             }`}
             key={image.src}
             layout="fill"
+            priority={priority}
             src={image.src}
             style={{ transform: 'translate3d(0,0,0)' }} // Hardware acceleration
           />

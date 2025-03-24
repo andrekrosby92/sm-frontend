@@ -50,6 +50,7 @@ export default function Bildekor(): JSX.Element {
                     alt: 'Hvit bil med bildekor',
                   },
                 ]}
+                priority
               />
             </div>
           </section>

@@ -8,3 +8,19 @@
     src: url('/fonts/cursive.ttf');
   }
 }
+
+.article-container {
+  width: calc(100vw - 32px);
+}
+
+@media (min-width: 768px) {
+  .article-container {
+    width: calc(100vw - 128px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .article-container {
+    max-width: 72rem;
+  }
+}

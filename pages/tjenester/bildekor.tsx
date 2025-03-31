@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-
 import Image from 'next/image'
 
 import ContactForm from 'scenarios/contact/components/ContactForm'
@@ -19,7 +18,7 @@ export default function Bildekor(): JSX.Element {
         title="Bildekor & Helfoliering · Skiltmakeren AS"
       />
 
-      <div className="article-container mx-auto mt-6 xl:mt-8 mb-24 text-[#231F20]">
+      <div className="article-container mx-auto mt-4 md:mt-6 xl:mt-8 mb-24 text-[#231F20]">
         <span className="text-sm xl:text-base text-primary">Tjenester / Bildekor</span>
 
         <article className="mt-4 xl:mt-6">
@@ -38,15 +37,15 @@ export default function Bildekor(): JSX.Element {
               <ImageCarousel
                 images={[
                   {
-                    src: '/images/bildekor-to-hvite-elektriske-varebiler.jpg',
-                    alt: 'To hvite varebilder med blå firmadekor',
+                    src: '/images/bildekor/hvite-elektriske-varebiler.jpg',
+                    alt: 'Hvite varebiler med blå firmadekor',
                   },
                   {
-                    src: '/images/bildekor-hvite-biler.jpg',
+                    src: '/images/bildekor/hvite-biler.jpg',
                     alt: 'Hvite biler med firmadekor',
                   },
                   {
-                    src: '/images/bildekor-hvit-bil.jpg',
+                    src: '/images/bildekor/hvit-bil.jpg',
                     alt: 'Hvit bil med bildekor',
                   },
                 ]}
@@ -114,15 +113,15 @@ export default function Bildekor(): JSX.Element {
               <ImageCarousel
                 images={[
                   {
-                    src: '/images/bildekor-firmadekor-hvit-bil.jpg',
+                    src: '/images/bildekor/firmadekor-hvit-bil.jpg',
                     alt: 'Hvit bil med firmadekor',
                   },
                   {
-                    src: '/images/bildekor-firmadekor-svart-varebil.jpg',
+                    src: '/images/bildekor/firmadekor-svart-varebil.jpg',
                     alt: 'Svart varebil med firmadekor',
                   },
                   {
-                    src: '/images/bildekor-firmadekor-gra-varebil-detalj.jpg',
+                    src: '/images/bildekor/firmadekor-gra-varebil-detalj.jpg',
                     alt: 'Detaljefoto av en grå varebil med blå firmadekor',
                   },
                 ]}
@@ -151,15 +150,15 @@ export default function Bildekor(): JSX.Element {
               <ImageCarousel
                 images={[
                   {
-                    src: '/images/bildekor-helfoliering-gronn-bil-bmw.jpg',
+                    src: '/images/bildekor/helfoliering-gronn-bil-bmw.jpg',
                     alt: 'Grønn BMW med helfoliering',
                   },
                   {
-                    src: '/images/bildekor-helfoliering-svart-bil.jpg',
+                    src: '/images/bildekor/helfoliering-svart-bil.jpg',
                     alt: 'Svart bil med helfoliering',
                   },
                   {
-                    src: '/images/bildekor-helfoliering-gronn-bil-hyundai.jpg',
+                    src: '/images/bildekor/helfoliering-gronn-bil-hyundai.jpg',
                     alt: 'Grønn Hyundai med helfoliering',
                   },
                 ]}
@@ -218,10 +217,10 @@ export default function Bildekor(): JSX.Element {
             <div className="xl:pr-80 mt-8 mx-[-16px] md:mx-auto">
               <div className="relative w-full pb-[56.25%]">
                 <Image
-                  alt="Folieruller"
+                  alt="Skiltmakeren tilbyr profesjonell service og rask levering"
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   layout="fill"
-                  src="/images/profesjonell-service.jpg"
+                  src="/images/bildekor/profesjonell-service.jpg"
                 />
               </div>
             </div>

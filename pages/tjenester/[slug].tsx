@@ -51,10 +51,21 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult<{ slug: str
 export async function getStaticProps(
   context: GetStaticPropsContext<{ slug: string }>,
 ): Promise<GetStaticPropsResult<{ companyService: CompanyService }>> {
+  if (context.params?.slug === 'kjoretoydekor') {
+    return {
+      redirect: {
+        destination: '/tjenester/dekor-til-kjoretoy',
+        permanent: false,
+      },
+    }
+  }
+
+  const companyService = await Sanity.getCompanyServiceDetail(context.params?.slug)
+
   return {
     revalidate: 30,
     props: {
-      companyService: await Sanity.getCompanyServiceDetail(context.params?.slug),
+      companyService,
     },
   }
 }

@@ -18,7 +18,31 @@ export default function CompanyServiceItem({
   icon: SanityImage
   shortDescription: string
 }): JSX.Element {
-  const href = hrefFromSlug(slug)
+  // TODO START
+  // Temp change url from "kjoretoydekor" to "dekor-til-kjoretoy"
+  let slugMirror = ''
+
+  if (slug === 'kjoretoydekor') {
+    slugMirror = 'dekor-til-kjoretoy'
+  } else {
+    slugMirror = slug
+  }
+
+  const href = hrefFromSlug(slugMirror)
+
+  // TODO END
+
+  // TODO START
+  // Temp change title from "Kjøretøydekor" to "Dekor til kjøretøy"
+  let titleMirror = ''
+
+  if (title === 'Kjøretøydekor') {
+    titleMirror = 'Dekor til kjøretøy'
+  } else {
+    titleMirror = title
+  }
+
+  // TODO END
 
   const [{ scale, x }, api] = useSpring(() => ({
     config: { mass: 1, tension: 500, friction: 12 },
@@ -47,9 +71,9 @@ export default function CompanyServiceItem({
         </a.div>
         <div className="h-full flex flex-col text-center">
           <a.div {...transform}>
-            <Image alt={title} height={80} src={Sanity.buildImageUrl(icon)} width={80} />
+            <Image alt={titleMirror} height={80} src={Sanity.buildImageUrl(icon)} width={80} />
           </a.div>
-          <h3 className="my-3 text-2xl font-semibold">{title}</h3>
+          <h3 className="my-3 text-2xl font-semibold">{titleMirror}</h3>
           <p className="mb-4 xl:mb-12 text-gray-700">{shortDescription}</p>
           <button className="xl:hidden w-full h-12 mt-auto rounded-xl bg-gradient-to-br from-primary to-primary-light font-medium">
             Les mer

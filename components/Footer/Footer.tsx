@@ -29,11 +29,14 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
           <section>
             <div className="text-lg font-medium">Våre tjenester</div>
             {companyServices.map((elem) => {
-              if (elem.title == 'Kjøretøydekor') {
+              if (elem.slug.current == 'kjoretoydekor') {
+                // TODO START
+                // Temp change url from "kjoretoydekor" to "dekor-til-kjoretoy"
+
                 return (
                   <Fragment key={elem.slug.current}>
-                    <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
-                      <a className="block hover:underline">{elem.title}</a>
+                    <Link href={hrefFromSlug('dekor-til-kjoretoy')} key={elem.slug.current}>
+                      <a className="block hover:underline">Dekor til kjøretøy</a>
                     </Link>
 
                     <span className="block ml-4">
@@ -41,8 +44,22 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
                         <a className="block hover:underline text-[13px]">Bildekor</a>
                       </Link>
                     </span>
+
+                    <span className="block ml-4">
+                      <Link href={hrefFromSlug('lastebildekor')} key={elem.slug.current}>
+                        <a className="block hover:underline text-[13px]">Lastebildekor</a>
+                      </Link>
+                    </span>
+
+                    <span className="block ml-4">
+                      <Link href={hrefFromSlug('bussdekor')} key={elem.slug.current}>
+                        <a className="block hover:underline text-[13px]">Bussdekor</a>
+                      </Link>
+                    </span>
                   </Fragment>
                 )
+
+                // TODO END
               } else {
                 return (
                   <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>

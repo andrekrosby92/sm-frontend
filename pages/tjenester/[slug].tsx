@@ -41,12 +41,9 @@ export default function CompanyServiceDetail(props: InferGetStaticPropsType<type
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult<{ slug: string }>> {
   const res = await Sanity.getCompanyServicePaths()
-  const filteredPaths = res
-    .map((elem) => ({ params: { slug: elem.slug.current } }))
-    .filter((elem) => elem.params.slug !== 'kjoretoydekor')
 
   return {
-    paths: filteredPaths,
+    paths: res.map((elem) => ({ params: { slug: elem.slug.current } })),
     fallback: 'blocking',
   }
 }
@@ -54,12 +51,10 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult<{ slug: str
 export async function getStaticProps(
   context: GetStaticPropsContext<{ slug: string }>,
 ): Promise<GetStaticPropsResult<{ companyService: CompanyService }>> {
-  const companyService = await Sanity.getCompanyServiceDetail(context.params?.slug)
-
   return {
     revalidate: 30,
     props: {
-      companyService,
+      companyService: await Sanity.getCompanyServiceDetail(context.params?.slug),
     },
   }
 }

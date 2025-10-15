@@ -1,20 +1,35 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ServerClient } from 'postmark'
 
+import { isObject, isString } from 'utils/helpers';
+
+const client = new ServerClient(process.env.POSTMARK_SERVER_TOKEN)
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-  if (!req.body.name) {
-    res.status(404).json({ error: 'No name' })
+  const fields = req.body.fields;
+  const reCaptchaToken = req.body.reCaptchaToken;
+
+  if (!isObject(fields)) {
+    return res.status(400).json({ error: 'Mangler `fields`.' })
   }
 
-  if (!req.body.email) {
-    res.status(404).json({ error: 'No email' })
+  if (!isString(reCaptchaToken)) {
+    return res.status(400).json({ error: 'Mangler `reCaptchaToken`.' })
   }
 
-  if (!req.body.message) {
-    res.status(404).json({ error: 'No message' })
+  // Validate form data
+  const invalidFields = findInvalidFields(fields)
+
+  if (invalidFields.length > 0) {
+    return res.status(400).json({ error: `Mangler påkrevde felt: ${invalidFields.join(', ')}.` })
   }
 
-  const client = new ServerClient(process.env.POSTMARK_SERVER_TOKEN)
+  // Validate reCAPTCHA
+  const reCaptchaRes = await verifyReCaptcha(reCaptchaToken)
+
+  if (!reCaptchaRes.success) {
+    return res.status(403).json({ error: 'Utløpt eller ugyldig reCAPTCHA.' })
+  }
 
   try {
     await client.sendEmailWithTemplate({
@@ -22,16 +37,61 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       To: 'stian@skiltmakeren.no',
       TemplateId: 25640733,
       TemplateModel: {
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message,
-        company: req.body.company,
-        phone_number: req.body.phone_number,
+        name: req.body.fields.name,
+        company: req.body.fields.company,
+        email: req.body.fields.email,
+        phone_number: req.body.fields.phone,
+        message: req.body.fields.message,
       },
     })
 
-    res.status(200).json({ success: true })
-  } catch (error) {
-    res.status(404).json({ error: 'Failed to send email', message: error })
+    return res.status(200).json({ success: true })
+  } catch {
+    return res.status(500).json({ error: 'Kunne ikke sende melding' })
   }
+}
+
+function findInvalidFields(fields: Record<string, unknown>): string[] {
+  const invalidFields: string[] = [];
+
+  function isInvalidField(v: unknown): boolean {
+    return typeof v !== "string" || v.trim().length === 0;
+  }
+
+  if (isInvalidField(fields.name)) {
+    invalidFields.push('name')
+  }
+
+  if (isInvalidField(fields.email)) {
+    invalidFields.push('email')
+  }
+
+  if (isInvalidField(fields.message)) {
+    invalidFields.push('message')
+  }
+
+  return invalidFields
+}
+
+
+interface ReCaptchaResponse {
+  success: boolean
+  challenge_ts?: string
+  hostname?: string
+  'error-codes'?: string[]
+}
+
+async function verifyReCaptcha(token: string): Promise<ReCaptchaResponse> {
+  const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams({
+      secret: process.env.GOOGLE_RECAPTCHA_SECRET_KEY,
+      response: token,
+    }),
+  })
+
+  return response.json()
 }

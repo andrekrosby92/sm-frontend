@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MessageError({ message }: { message: string | undefined }): JSX.Element | null {
+export default function ErrorMessage({ message }: { message: string | null | undefined }): JSX.Element | null {
   if (!message) {
     return null
   }

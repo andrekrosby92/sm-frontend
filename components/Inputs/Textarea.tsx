@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
 import FloatingLabel from './Labels/FloatingLabel'
-import MessageError from './Messages/MessageError'
+import ErrorMessage from './Messages/ErrorMessage'
 
 export default function Textarea({
   autoComplete,
+  disabled = false,
   label,
   messageError,
   name,
@@ -12,8 +13,9 @@ export default function Textarea({
   value,
 }: {
   autoComplete: string
+  disabled?: boolean
   label: string
-  messageError?: string | undefined
+  messageError?: string | null | undefined
   name: string
   onChange: (value: string) => void
   value: string
@@ -34,6 +36,7 @@ export default function Textarea({
             `${messageError ? 'focus:ring-red-600' : 'focus:ring-black'} ` +
             `${messageError ? 'ring-red-600' : 'ring-gray-300'}`
           }
+          disabled={disabled}
           id={name}
           name={name}
           onBlur={() => setIsFocused(false)}
@@ -45,7 +48,7 @@ export default function Textarea({
         />
       </div>
 
-      <MessageError message={messageError} />
+      <ErrorMessage message={messageError} />
     </div>
   )
 }

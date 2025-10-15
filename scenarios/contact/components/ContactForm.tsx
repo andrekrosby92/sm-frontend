@@ -1,95 +1,164 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import axios from 'axios'
 import { useMutation } from 'react-query'
 
+import ErrorMessage from 'components/Inputs/Messages/ErrorMessage'
 import Input from 'components/Inputs/Input'
-import MessageSuccess from 'components/Messages/MessageSuccess'
 import Spinner from 'components/Loaders/Spinner'
+import SuccessMessage from 'components/Messages/SuccessMessage'
 import Textarea from 'components/Inputs/Textarea'
-import { isValidEmailAddress, pick } from 'utils/helpers'
+import { isValidEmailAddress } from 'utils/helpers'
 
-const initialState = {
+interface FormFields {
+  name: string
+  company: string
+  email: string
+  phone: string
+  message: string
+}
+
+interface FormErrors {
+  name: string | null
+  email: string | null
+  message: string | null
+}
+
+interface TData {
+  data: {
+    success: true
+  }
+}
+
+interface TError {
+  response?: {
+    data: {
+      error: string
+    }
+  }
+}
+
+interface TVariables {
+  fields: FormFields
+  reCaptchaToken: string
+}
+
+const initialFields: FormFields = {
+  name: '',
   company: '',
   email: '',
+  phone: '',
   message: '',
-  name: '',
-  phone_number: '',
+}
+
+const initialErrors: FormErrors = {
+  name: null,
+  email: null,
+  message: null,
 }
 
 export default function ContactForm(): JSX.Element {
-  const [didAttemptToSubmit, setDidAttemptToSubmit] = useState(false)
-  const [fields, setFields] = useState(initialState)
-  const requiredFields = useMemo(() => pick(fields, 'email', 'message', 'name'), [fields])
+  const [fields, setFields] = useState(initialFields)
+  const [errors, setErrors] = useState(initialErrors)
 
-  type FormErrors<T> = {
-    [key in keyof typeof requiredFields]?: T
-  }
+  const recaptchaRef = React.createRef<ReCAPTCHA>()
+  const [reCaptchaToken, setReCaptchaToken] = useState<string | null>(null)
+  const [reCaptchaError, setReCaptchaError] = useState<string | null>(null)
+  const [didAttemptSubmit, setDidAttemptSubmit] = useState(false)
 
-  const [errors, setErrors] = useState({} as FormErrors<string>)
-
-  interface ResponseData {
-    data: { success: true }
-  }
-
-  interface ResponseError {
-    response: { data: FormErrors<string[]> } | undefined
-  }
-
-  const mutation = useMutation<ResponseData, ResponseError, typeof fields>((data) => {
+  const apiCall = useMutation<TData, TError, TVariables>((data) => {
     return axios.post('/api/contact', data)
   })
 
-  const validateFields = useCallback((fields: typeof requiredFields): FormErrors<string> => {
-    return Object.entries(fields).reduce((acc, [key, value]) => {
-      if (value.trim().length === 0) {
-        return { ...acc, [key]: 'Feltet er påkrevd.' }
-      } else if (key === 'email' && !isValidEmailAddress(value)) {
-        return { ...acc, [key]: 'Vennligst oppgi en gyldig e-post.' }
-      } else {
-        return acc
-      }
-    }, {})
+  const resetForm = useCallback(() => {
+    setFields(initialFields)
+    setDidAttemptSubmit(false)
+    recaptchaRef.current?.reset()
+  }, [recaptchaRef])
+
+  const resetApiCall = useCallback(() => {
+    setTimeout(() => apiCall.reset(), 4000)
+  }, [apiCall])
+
+  useEffect(() => {
+    if (apiCall.isSuccess) {
+      resetForm()
+      resetApiCall()
+    }
+  }, [apiCall.isSuccess, resetForm, resetApiCall])
+
+  const validateFields = useCallback((fields: FormFields): FormErrors => {
+    const errors: FormErrors = {
+      name: null,
+      email: null,
+      message: null,
+    }
+
+    if (fields.name.trim().length === 0) {
+      errors.name = 'Feltet er påkrevd.'
+    }
+
+    if (fields.email.trim().length === 0 || !isValidEmailAddress(fields.email)) {
+      errors.email = 'Oppgi en gyldig e-post.'
+    }
+
+    if (fields.message.trim().length === 0) {
+      errors.message = 'Feltet er påkrevd.'
+    }
+
+    return errors
   }, [])
 
   useEffect(() => {
-    if (didAttemptToSubmit) {
-      setErrors(validateFields(requiredFields))
+    if (didAttemptSubmit) {
+      // Continually validate the fields
+      const formErrors = validateFields(fields)
+      
+      setErrors(formErrors)
     }
-  }, [didAttemptToSubmit, requiredFields, validateFields])
+  }, [didAttemptSubmit, validateFields, fields])
 
-  useEffect(() => {
-    if (mutation.isSuccess) {
-      setFields(initialState)
-      setDidAttemptToSubmit(false)
+  const setField = (key: keyof typeof fields, value: string): void => {
+    setFields((prevState) => ({ ...prevState, [key]: value }))
+  }
+
+  const onReCaptchaChange = (token: string | null): void => {
+    if (token === null) {
+      setReCaptchaToken(null)
     }
 
-    if (mutation.isError) {
-      const data = mutation.error?.response?.data
-
-      setErrors((prevState) => ({
-        ...prevState,
-        email: data?.email?.[0] ?? 'Noe gikk galt',
-        message: data?.message?.[0] ?? 'Noe gikk galt',
-        name: data?.name?.[0] ?? 'Noe gikk galt',
-      }))
+    if (typeof token === 'string') {
+      setReCaptchaToken(token)
+      setReCaptchaError(null)
     }
-  }, [mutation.error?.response?.data, mutation.isError, mutation.isSuccess])
+  }
 
   const handleOnSubmit = (event: React.FormEvent): void => {
     event.preventDefault()
-    const validationErrors = validateFields(requiredFields)
 
-    if (!didAttemptToSubmit) {
-      setDidAttemptToSubmit(true)
+    if (!didAttemptSubmit) {
+      setDidAttemptSubmit(true)
     }
 
-    if (Object.entries(validationErrors).length > 0) {
-      setErrors(validationErrors)
-      return
+    const formErrors = validateFields(fields)
+
+    if (Object.values(formErrors).some((v) => typeof v === 'string')) {
+      return void (() => {
+        setErrors(formErrors)
+      })()
     }
 
-    if (!mutation.isLoading) {
-      mutation.mutate(fields)
+    if (reCaptchaToken === null) {
+      return void (() => {
+        setReCaptchaError('reCAPTCHA må fullføres.')
+      })()
+    }
+
+    if (!apiCall.isLoading) {
+      apiCall.mutate({
+        fields,
+        reCaptchaToken,
+      })
     }
   }
 
@@ -99,20 +168,23 @@ export default function ContactForm(): JSX.Element {
         <div className="md:col-span-3">
           <Input
             autoComplete="name"
+            disabled={apiCall.isSuccess}
             label="Navn"
             messageError={errors.name}
             name="name"
-            onChange={(value) => setFields((prevState) => ({ ...prevState, name: value }))}
+            onChange={(value) => setField('name', value)}
             type="text"
             value={fields.name}
           />
         </div>
+
         <div className="md:col-span-4">
           <Input
             autoComplete="organization"
+            disabled={apiCall.isSuccess}
             label="Firma"
             name="company"
-            onChange={(value) => setFields((prevState) => ({ ...prevState, company: value }))}
+            onChange={(value) => setField('company', value)}
             type="text"
             value={fields.company}
           />
@@ -123,44 +195,67 @@ export default function ContactForm(): JSX.Element {
         <div className="md:col-span-4">
           <Input
             autoComplete="email"
+            disabled={apiCall.isSuccess}
             label="E-post"
             messageError={errors.email}
             name="email"
-            onChange={(value) => setFields((prevState) => ({ ...prevState, email: value }))}
+            onChange={(value) => setField('email', value)}
             type="email"
             value={fields.email}
           />
         </div>
+
         <div className="md:col-span-3">
           <Input
             autoComplete="tel"
+            disabled={apiCall.isSuccess}
             label="Telefonnummer"
-            name="phone_number"
-            onChange={(value) => setFields((prevState) => ({ ...prevState, phone_number: value }))}
+            name="phone"
+            onChange={(value) => setField('phone', value)}
             type="text"
-            value={fields.phone_number}
+            value={fields.phone}
           />
         </div>
       </div>
 
       <Textarea
         autoComplete="off"
+        disabled={apiCall.isSuccess}
         label="Melding"
         messageError={errors.message}
         name="message"
-        onChange={(value) => setFields((prevState) => ({ ...prevState, message: value }))}
+        onChange={(value) => setField('message', value)}
         value={fields.message}
       />
 
-      {mutation.isSuccess && (
-        <MessageSuccess header="Takk for meldingen!" message="Vi vil svare deg så raskt som mulig." />
+      {apiCall.isSuccess && (
+        <SuccessMessage header="Takk for meldingen!" message="Vi vil svare deg så raskt som mulig." />
       )}
 
-      <button
-        className="px-3 py-2.5 rounded-lg bg-primary-darker text-primary flex items-center justify-center"
-        type="submit"
-      >
-        {mutation.isLoading ? <Spinner className="h-6 w-6" /> : 'Send melding'}
+      {apiCall.isError && typeof apiCall.error?.response?.data !== 'undefined' && (
+        <div className="mt-0.5">
+          <ErrorMessage message={apiCall.error?.response?.data.error} />
+        </div>
+      )}
+
+      <div>
+        <ReCAPTCHA
+          onChange={onReCaptchaChange}
+          ref={recaptchaRef}
+          sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY}
+        />
+
+        {typeof reCaptchaError === 'string' && (
+          <div className="mt-0.5">
+            <ErrorMessage message={reCaptchaError} />
+          </div>
+        )}
+      </div>
+
+      <button className="rounded-lg bg-primary-darker text-primary" disabled={apiCall.isSuccess} type="submit">
+        <span className="px-3 py-2.5 flex items-center justify-center">
+          {apiCall.isLoading ? <Spinner className="h-6 w-6" /> : 'Send melding'}
+        </span>
       </button>
     </form>
   )

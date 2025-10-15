@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MessageBase({
+export default function BaseMessage({
   children,
   header,
   message,

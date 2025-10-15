@@ -24,3 +24,12 @@ export function hrefFromSlug(slug: string): string {
     return `/tjenester/${slug}`
   }
 }
+
+export function isObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && !Array.isArray(v) && v !== null;
+}
+
+export function isString(v: unknown): v is string {
+  return typeof v === 'string'
+}
+

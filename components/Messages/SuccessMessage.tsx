@@ -1,10 +1,10 @@
 import React from 'react'
 
-import MessageBase from './MessageBase'
+import BaseMessage from './BaseMessage'
 
-export default function MessageSuccess(props: { header: string; message: string }): JSX.Element {
+export default function SuccessMessage(props: { header: string; message: string }): JSX.Element {
   return (
-    <MessageBase {...props}>
+    <BaseMessage {...props}>
       <svg className="w-12 h-12 flex-shrink-0" fill="none" viewBox="0 0 452 452" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M226 451.871C350.744 451.871 451.869 350.746 451.869 226.002C451.869 101.258 350.744 0.132812 226 0.132812C101.256 0.132812 0.130859 101.258 0.130859 226.002C0.130859 350.746 101.256 451.871 226 451.871Z"
@@ -18,6 +18,6 @@ export default function MessageSuccess(props: { header: string; message: string 
           strokeWidth="35"
         />
       </svg>
-    </MessageBase>
+    </BaseMessage>
   )
 }

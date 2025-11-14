@@ -19,27 +19,30 @@ function Sort({
   active?: boolean
   onClick?: () => void
 }): JSX.Element {
+  const baseClasses = 'flex items-center rounded-md border transition'
+  const activeClasses = 'bg-primary text-primary-darker border-primary-darker'
+  const inactiveClasses = 'bg-transparent text-primary border-primary hover:bg-primary/10'
+  const dynClasses = active ? activeClasses : inactiveClasses
+
+  const renderIcon = (size: number): JSX.Element => {
+    const iconSizeClasses = size === 14 ? 'w-[14px] h-[14px] border' : 'w-[18px] h-[18px] mx-px border-2'
+
+    return active ? (
+      <svg height={size} viewBox="0 0 24 24" width={size} xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z" />
+      </svg>
+    ) : (
+      <span>
+        <div className={`rounded-full border-primary-darker ${iconSizeClasses}`} />
+      </span>
+    )
+  }
+
   return (
     <Fragment>
       <div className="md:hidden">
-        <button
-          className={`flex items-center py-[5px] px-1 rounded-md border transition ${
-            active
-              ? 'bg-primary text-primary-darker border-primary-darker'
-              : 'bg-transparent text-primary border-primary hover:bg-primary/10'
-          }`}
-          onClick={onClick}
-        >
-          <div>
-            {active ? (
-              <svg height={14} viewBox="0 0 24 24" width={14} xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z" />
-              </svg>
-            ) : (
-              <div className=" w-[14px] h-[14px] border border-primary-darker rounded-full" />
-            )}
-          </div>
-
+        <button className={`${baseClasses} ${dynClasses} py-[5px] px-1`} onClick={onClick}>
+          <div>{renderIcon(14)}</div>
           <div className="flex ml-1">
             <span className="text-primary-darker text-[12px] leading-[0]">{children}</span>
           </div>
@@ -47,24 +50,8 @@ function Sort({
       </div>
 
       <div className="hidden md:block">
-        <button
-          className={`flex items-center py-1 px-1.5 rounded-md border transition ${
-            active
-              ? 'bg-primary text-primary-darker border-primary-darker'
-              : 'bg-transparent text-primary border-primary hover:bg-primary/10'
-          }`}
-          onClick={onClick}
-        >
-          <div>
-            {active ? (
-              <svg height={20} viewBox="0 0 24 24" width={20} xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z" />
-              </svg>
-            ) : (
-              <div className=" w-[18px] h-[18px] mx-px border-2 border-primary-darker rounded-full" />
-            )}
-          </div>
-
+        <button className={`${baseClasses} ${dynClasses} py-1 px-1.5`} onClick={onClick}>
+          <div>{renderIcon(20)}</div>
           <div className="ml-1">
             <span className="text-primary-darker">{children}</span>
           </div>
@@ -123,7 +110,7 @@ export default function ArbeidsklaerOgVerneutstyr(props: InferGetStaticPropsType
           </section>
 
           <section className="mt-2 mb-4">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1 md:gap-2">
               {[
                 { title: 'Jakker', value: 'jakke' },
                 { title: 'Bukser', value: 'bukse' },

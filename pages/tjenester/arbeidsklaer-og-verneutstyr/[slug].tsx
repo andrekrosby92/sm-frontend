@@ -55,12 +55,12 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
   return (
     <Fragment>
       <SEO
-        canonicalUrl="________________________________________"
-        description="________________________________________"
-        descriptionFacebook="________________________________________"
-        descriptionTwitter="________________________________________"
+        canonicalUrl={`https://www.skiltmakeren.no/tjenester/arbeidsklaer-og-verneutstyr/${props.arbeidsklaer.slug.current}`}
+        description="Skiltmakeren leverer arbeidsklær og verneutstyr fra kjente merker som L.Brador og Blåkläder."
+        descriptionFacebook="Skiltmakeren leverer arbeidsklær og verneutstyr fra kjente merker som L.Brador og Blåkläder."
+        descriptionTwitter="Skiltmakeren leverer arbeidsklær og verneutstyr fra kjente merker som L.Brador og Blåkläder."
         imageSource="https://www.skiltmakeren.no/images/meta-image.png"
-        title="________________________________________"
+        title={`${props.arbeidsklaer.title} · Skiltmakeren AS`}
       />
 
       <div className="article-container mx-auto mt-4 md:mt-6 xl:mt-8 mb-24 text-[#231F20]">

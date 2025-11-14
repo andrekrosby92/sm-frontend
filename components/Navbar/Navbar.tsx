@@ -1,12 +1,10 @@
-import React, { Dispatch, Fragment, SetStateAction, useEffect, useRef, useState } from 'react'
+import React, { Dispatch, Fragment, ReactNode, SetStateAction, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 
-import type { CompanyServiceMinimal } from 'types/company-service'
 import Icon from 'components/Icons/Icon'
-import Sanity from 'services/Sanity'
-import { hrefFromSlug } from 'utils/helpers'
+import { TJENESTER } from 'lib/data/tjenester'
 
 import NavbarLink from './NavbarLink'
 import NavbarLogo from './NavbarLogo'
@@ -42,7 +40,7 @@ function useSubMenusController(): {
   }
 }
 
-export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): JSX.Element {
+export default function Navbar(): JSX.Element {
   const { displayMobileMenu, displayServicesMenu, setDisplayMobileMenu, setDisplayServicesMenu } =
     useSubMenusController()
 
@@ -66,11 +64,11 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
       </section>
 
       <Fragment>
-        <ServicesMenu displayMenu={displayServicesMenu} services={links} setDisplayMenu={setDisplayServicesMenu} />
+        <ServicesMenu displayMenu={displayServicesMenu} setDisplayMenu={setDisplayServicesMenu} />
       </Fragment>
 
       <Fragment>
-        <MobileNavigationMenu displayMenu={displayMobileMenu} links={links} />
+        <MobileNavigationMenu displayMenu={displayMobileMenu} />
       </Fragment>
     </nav>
   )
@@ -78,11 +76,9 @@ export default function Navbar({ links }: { links: CompanyServiceMinimal[] }): J
 
 function ServicesMenu({
   displayMenu,
-  services,
   setDisplayMenu,
 }: {
   displayMenu: boolean
-  services: CompanyServiceMinimal[]
   setDisplayMenu: Dispatch<SetStateAction<boolean>>
 }): JSX.Element {
   const ref = useRef<HTMLDivElement>(null)
@@ -107,62 +103,58 @@ function ServicesMenu({
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23191202' fill-opacity='0.075' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
   }
 
+  const hrefCx = 'group flex flex-col items-center'
+
   return (
     <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
-        {services.map((elem) => {
-          // TODO START
-          // Temp change url from "kjoretoydekor" to "dekor-til-kjoretoy"
-          let slugMirror = ''
-
-          if (elem.slug.current === 'kjoretoydekor') {
-            slugMirror = 'dekor-til-kjoretoy'
-          } else {
-            slugMirror = elem.slug.current
-          }
-
-          const href = hrefFromSlug(slugMirror)
-          // TODO END
-
-          // TODO START
-          // Temp change title from "Kjøretøydekor" to "Dekor til kjøretøy"
-          let titleMirror = ''
-
-          if (elem.title === 'Kjøretøydekor') {
-            titleMirror = 'Dekor til kjøretøy'
-          } else {
-            titleMirror = elem.title
-          }
-
-          // TODO END
-
-          return (
-            <Link href={href} key={href}>
-              <a className="group flex flex-col items-center">
-                <span className="transition transform group-hover:scale-110">
-                  <Image alt={titleMirror} height={64} src={Sanity.buildImageUrl(elem.icon)} width={64} />
-                </span>
-                <span className="transition tracking-wide font-medium text-gray-800 group-hover:text-black">
-                  {titleMirror}
-                </span>
+        {TJENESTER.map((elem) => {
+          if (elem.href === 'https://www.bird-free.no') {
+            return (
+              <a className={hrefCx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
+                <MenuItem>
+                  <MenuItem.Image image={elem.icon} />
+                  <MenuItem.Title>{elem.title}</MenuItem.Title>
+                </MenuItem>
               </a>
-            </Link>
-          )
+            )
+          } else {
+            return (
+              <Link className={hrefCx} href={elem.href} key={elem.href}>
+                <MenuItem>
+                  <MenuItem.Image image={elem.icon} />
+                  <MenuItem.Title>{elem.title}</MenuItem.Title>
+                </MenuItem>
+              </Link>
+            )
+          }
         })}
       </div>
     </div>
   )
 }
 
-function MobileNavigationMenu({
-  className,
-  displayMenu,
-  links,
-}: {
-  className?: string
-  displayMenu: boolean
-  links: CompanyServiceMinimal[]
-}): JSX.Element {
+function MenuItem({ children }: { children: ReactNode }): JSX.Element {
+  return <Fragment>{children}</Fragment>
+}
+
+MenuItem.Title = function _title({ children }: { children: ReactNode }): JSX.Element {
+  return (
+    <span className="transition tracking-wide font-medium text-gray-800 group-hover:text-black">
+      <span>{children}</span>
+    </span>
+  )
+}
+
+MenuItem.Image = function _image({ image }: { image: { src: string; alt: string } }): JSX.Element {
+  return (
+    <span className="transition transform group-hover:scale-110">
+      <Image alt={image.alt} height={64} src={image.src} width={64} />
+    </span>
+  )
+}
+
+function MobileNavigationMenu({ className, displayMenu }: { className?: string; displayMenu: boolean }): JSX.Element {
   const height = displayMenu ? 'h-[calc(100vh-4rem)]' : 'h-0'
   const style: React.CSSProperties = {
     backdropFilter: 'blur(32px)',
@@ -177,25 +169,25 @@ function MobileNavigationMenu({
           <Fragment>
             <h2 className="font-light text-2xl text-primary">Våre tjenester</h2>
             <Fragment>
-              <LinksList links={links} />
+              <LinksList />
             </Fragment>
 
             <hr className="border-t border-primary/75" />
 
-            <Link href="/miljo">
-              <a className="font-light text-xl text-primary">Miljø</a>
+            <Link className="font-light text-xl text-primary" href="/miljo">
+              Miljø
             </Link>
-            <Link href="/nedlastninger">
-              <a className="font-light text-xl text-primary">Nedlastninger</a>
+            <Link className="font-light text-xl text-primary" href="/nedlastninger">
+              Nedlastninger
             </Link>
-            <Link href="/om-oss">
-              <a className="font-light text-xl text-primary">Om oss</a>
+            <Link className="font-light text-xl text-primary" href="/om-oss">
+              Om oss
             </Link>
-            <Link href="/nyheter">
-              <a className="font-light text-xl text-primary">Nyheter</a>
+            <Link className="font-light text-xl text-primary" href="/nyheter">
+              Nyheter
             </Link>
-            <Link href="/kontakt">
-              <a className="font-light text-xl text-primary">Kontakt</a>
+            <Link className="font-light text-xl text-primary" href="/kontakt">
+              Kontakt
             </Link>
           </Fragment>
 
@@ -212,46 +204,38 @@ function MobileNavigationMenu({
   )
 }
 
-function LinksList({ links }: { links: CompanyServiceMinimal[] }): JSX.Element {
+function LinksList(): JSX.Element {
+  const cx = 'flex justify-between items-center font-light text-xl text-primary'
+
   return (
     <Fragment>
-      {links.map((elem) => {
-        // TODO START
-        // Temp change url from "kjoretoydekor" to "dekor-til-kjoretoy"
-        let slugMirror = ''
-
-        if (elem.slug.current === 'kjoretoydekor') {
-          slugMirror = 'dekor-til-kjoretoy'
-        } else {
-          slugMirror = elem.slug.current
-        }
-
-        const href = hrefFromSlug(slugMirror)
-        // TODO END
-
-        // TODO START
-        // Temp change title from "Kjøretøydekor" to "Dekor til kjøretøy"
-        let titleMirror = ''
-
-        if (elem.title === 'Kjøretøydekor') {
-          titleMirror = 'Dekor til kjøretøy'
-        } else {
-          titleMirror = elem.title
-        }
-
-        // TODO END
-
-        return (
-          <Link href={href} key={href}>
-            <a className="flex justify-between items-center font-light text-xl text-primary">
-              <span>{titleMirror}</span>
-              <svg className="w-5 h-5 fill-current currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z " />
-              </svg>
+      {TJENESTER.map((elem) => {
+        if (elem.href === 'https://www.bird-free.no') {
+          return (
+            <a className={cx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
+              <span>{elem.title}</span>
+              <ChevronRight />
             </a>
-          </Link>
-        )
+          )
+        } else {
+          return (
+            <Link href={elem.href} key={elem.href}>
+              <span className={cx}>
+                <span>{elem.title}</span>
+                <ChevronRight />
+              </span>
+            </Link>
+          )
+        }
       })}
     </Fragment>
+  )
+}
+
+function ChevronRight(): JSX.Element {
+  return (
+    <svg className="w-5 h-5 fill-current currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z " />
+    </svg>
   )
 }

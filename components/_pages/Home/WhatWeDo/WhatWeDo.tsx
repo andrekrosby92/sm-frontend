@@ -19,18 +19,13 @@ export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.E
                 <h3 className="text-2xl font-medium">{elem.title}</h3>
               </header>
               <p className="text-gray-700">{elem.pitch}</p>
-              {/* {elem.title === 'Miljø' && (
-                <Link href="/miljo">
-                  <a className="text-blue-500">Les mer om miljø</a>
-                </Link>
-              )} */}
             </div>
           ))}
         </section>
         <Link href="/om-oss">
-          <a className="inline-block px-4 py-2.5 rounded-lg bg-gradient-to-tl from-primary to-primary-light text-primary-darker">
+          <span className="inline-block px-4 py-2.5 rounded-lg bg-gradient-to-tl from-primary to-primary-light text-primary-darker">
             Les mer om Skiltmakeren
-          </a>
+          </span>
         </Link>
       </SectionWrapperPrimary>
     </div>

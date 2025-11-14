@@ -1,6 +1,5 @@
 import type { GetStaticPropsResult, InferGetStaticPropsType } from 'next'
 
-import type { CompanyServiceMinimal } from 'types/company-service'
 import type { Customer } from 'types/customer'
 import type { WhatWeDo } from 'types/what-we-do'
 import CompanyServicesList from 'components/_pages/Home/CompanyServices/CompanyServicesList'
@@ -24,7 +23,7 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
       />
 
       <Hero />
-      <CompanyServicesList companyServices={props.companyServices} />
+      <CompanyServicesList />
       <WhatWeDoSection whatWeDo={props.whatWeDo} />
       <Customers customers={props.customers} />
       <Contact />
@@ -34,13 +33,11 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
 
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<{
-    companyServices: CompanyServiceMinimal[]
     customers: Customer[]
     whatWeDo: WhatWeDo[]
   }>
 > {
   const data = {
-    companyServices: await Sanity.getCompanyServicesList(),
     customers: await Sanity.getCustomersList(),
     whatWeDo: await Sanity.getWhatWeDoList(),
   }

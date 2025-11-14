@@ -111,7 +111,7 @@ function LinkCard({
 }): React.ReactElement {
   return (
     <Link href={href}>
-      <a className="w-full md:w-96 px-4 flex items-center justify-between border rounded-lg">
+      <span className="w-full md:w-96 px-4 flex items-center justify-between border rounded-lg">
         <div className="flex items-center space-x-4">
           <Image alt={iconAlt} height={52} src={iconSrc} width={52} />
           <span className="text-lg font-medium">{title}</span>
@@ -120,7 +120,7 @@ function LinkCard({
         <span>
           <IconChevronRight className="w-5 h-5 fill-current currentColor" />
         </span>
-      </a>
+      </span>
     </Link>
   )
 }

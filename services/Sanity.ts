@@ -11,6 +11,7 @@ import { NewsArticle } from 'types/news-article'
 import { SanityPath, SanityQuery } from 'types/sanity'
 import { WhatWeDo } from 'types/what-we-do'
 import { getSanityQuery } from 'lib/sanity'
+import { Arbeidsklaer } from 'types/arbeidsklaer'
 
 class Sanity {
   client: SanityClient
@@ -22,6 +23,21 @@ class Sanity {
   buildImageUrl(source: SanityImageSource): string {
     const builder = imageUrlBuilder(this.client)
     return builder.image(source).url() ?? ''
+  }
+
+  async getArbeidsklaerDetail(slug: string | undefined): Promise<Arbeidsklaer> {
+    const query = getSanityQuery(SanityQuery.ARBEIDSKLAER)
+    return await this.client.fetch(query, { slug })
+  }
+
+  async getArbeidsklaerPaths(): Promise<SanityPath<Arbeidsklaer>[]> {
+    const query = getSanityQuery(SanityQuery.ARBEIDSKLAER_PATHS)
+    return await this.client.fetch(query)
+  }
+
+  async getArbeidsklaerList(): Promise<Arbeidsklaer[]> {
+    const query = getSanityQuery(SanityQuery.ARBEIDSKLAER_LIST)
+    return await this.client.fetch(query)
   }
 
   async getCompanyServiceDetail(slug: string | undefined): Promise<CompanyService> {

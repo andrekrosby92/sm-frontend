@@ -4,6 +4,28 @@ import { SanityQuery } from 'types/sanity'
 
 export function getSanityQuery(type: SanityQuery): string {
   switch (type) {
+    case SanityQuery.ARBEIDSKLAER:
+      return groq`
+        *[_type == "arbeidsklaer" && slug.current == $slug][0]
+      `
+
+    case SanityQuery.ARBEIDSKLAER_PATHS:
+      return groq`
+        *[_type == "arbeidsklaer"] | order(order asc) {
+          slug,
+        }
+      `
+
+    case SanityQuery.ARBEIDSKLAER_LIST:
+      return groq`
+        *[_type == "arbeidsklaer"] | order(order asc) {
+          slug,
+          title,
+          images,
+          tags
+        }
+      `
+
     case SanityQuery.COMPANY_SERVICE_DETAIL:
       return groq`
         *[_type == "company-service" && slug.current == $slug][0]
@@ -11,7 +33,7 @@ export function getSanityQuery(type: SanityQuery): string {
 
     case SanityQuery.COMPANY_SERVICE_PATHS:
       return groq`
-        *[_type == "company-service"] | order(order asc){
+        *[_type == "company-service"] | order(order asc) {
           slug,
         }
       `

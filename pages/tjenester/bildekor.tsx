@@ -220,7 +220,7 @@ export default function Bildekor(): JSX.Element {
                   alt="Skiltmakeren tilbyr profesjonell service og rask levering"
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   layout="fill"
-                  src="/images/bildekor/profesjonell-service.jpg"
+                  src="/images/bildekor/profesjonell-service.webp"
                 />
               </div>
             </div>

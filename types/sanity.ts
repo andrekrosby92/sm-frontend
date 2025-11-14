@@ -17,7 +17,7 @@ export interface SanityBlock {
 
 export interface SanityImage {
   _type: 'image'
-  alt?: string
+  alt: string
   asset: {
     _ref: string
     _type: string
@@ -32,6 +32,9 @@ export interface SanitySlug {
 export type SanityPath<T extends { slug: SanitySlug }> = Pick<T, 'slug'>
 
 export enum SanityQuery {
+  ARBEIDSKLAER = 'arbeidsklaer',
+  ARBEIDSKLAER_PATHS = 'arbeidsklaer-paths',
+  ARBEIDSKLAER_LIST = 'arbeidsklaer-list',
   COMPANY_SERVICES_LIST = 'company-services-list',
   COMPANY_SERVICES_MINIMAL_LIST = 'company-services-minimal-list',
   COMPANY_SERVICE_DETAIL = 'company-service-detail',

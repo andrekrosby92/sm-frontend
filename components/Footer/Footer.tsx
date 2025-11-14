@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { Fragment } from 'react'
 
 import Icon from 'components/Icons/Icon'
-import { CompanyServiceMinimal } from 'types/company-service'
-import { hrefFromSlug } from 'utils/helpers'
+import { TJENESTER } from 'lib/data/tjenester'
 
-export default function Footer({ companyServices }: { companyServices: CompanyServiceMinimal[] }): JSX.Element {
+export default function Footer(): JSX.Element {
   return (
     <footer className="bg-secondary-darker text-primary">
       <div className="max-w-5xl mx-auto px-6 py-12 md:p-12 xl:pb-32 xl:px-0 space-y-16 xl:space-y-20">
@@ -20,69 +18,15 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
                 <Image alt="Miljøfyrtårn" height={53} src="/images/miljøfyrtårn-logo.png" width={67} />
               </div>
               <div className="mt-4">
-                <Image alt="Startbank" height={32} src="/images/startbank-logo-hvit.png" width={165} />
+                <Image alt="Startbank" height={28} src="/images/startbank-logo-hvit.png" width={144} />
               </div>
             </div>
-            <span className="text-xs font-light">&copy; Copyright 1994-2024 &middot; Skiltmakeren AS</span>
+            <span className="text-xs font-light">&copy; Copyright 1994-2025 &middot; Skiltmakeren AS</span>
           </section>
 
-          <section>
-            <div className="text-lg font-medium">Våre tjenester</div>
-            {companyServices.map((elem) => {
-              if (elem.slug.current == 'kjoretoydekor') {
-                // TODO START
-                // Temp change url from "kjoretoydekor" to "dekor-til-kjoretoy"
+          <Tjenester />
 
-                return (
-                  <Fragment key={elem.slug.current}>
-                    <Link href={hrefFromSlug('dekor-til-kjoretoy')} key={elem.slug.current}>
-                      <a className="block hover:underline">Dekor til kjøretøy</a>
-                    </Link>
-
-                    <span className="block ml-4">
-                      <Link href={hrefFromSlug('bildekor')} key={elem.slug.current}>
-                        <a className="block hover:underline text-[13px]">Bildekor</a>
-                      </Link>
-                    </span>
-
-                    <span className="block ml-4">
-                      <Link href={hrefFromSlug('lastebildekor')} key={elem.slug.current}>
-                        <a className="block hover:underline text-[13px]">Lastebildekor</a>
-                      </Link>
-                    </span>
-
-                    <span className="block ml-4">
-                      <Link href={hrefFromSlug('bussdekor')} key={elem.slug.current}>
-                        <a className="block hover:underline text-[13px]">Bussdekor</a>
-                      </Link>
-                    </span>
-                  </Fragment>
-                )
-
-                // TODO END
-              } else {
-                return (
-                  <Link href={hrefFromSlug(elem.slug.current)} key={elem.slug.current}>
-                    <a className="block hover:underline">{elem.title}</a>
-                  </Link>
-                )
-              }
-            })}
-          </section>
-
-          <section>
-            <div className="text-lg font-medium">Kontakt oss</div>
-            <address className="space-y-1 flex flex-col not-italic">
-              <div className="flex flex-col">
-                <a href="mailto:post@skiltmakeren.no">post@skiltmakeren.no</a>
-                <span>+47 23 14 14 14</span>
-              </div>
-              <div className="flex flex-col">
-                <span>Gramveien 31</span>
-                <span>1832 Askim, Norge</span>
-              </div>
-            </address>
-          </section>
+          <Kontaktinformasjon />
 
           <section className="hidden xl:block space-y-2">
             <div className="text-lg font-medium">Vi bruker kvalitetsprodukter fra:</div>
@@ -121,5 +65,74 @@ export default function Footer({ companyServices }: { companyServices: CompanySe
         </section>
       </div>
     </footer>
+  )
+}
+
+function Tjenester(): JSX.Element {
+  const cx = 'block hover:underline'
+
+  return (
+    <section>
+      <div className="text-lg font-medium">Våre tjenester</div>
+      {TJENESTER.map((elem) => {
+        if (elem.title == 'Dekor til kjøretøy') {
+          return (
+            <Fragment key={elem.href}>
+              <Link href={elem.href} key={elem.href}>
+                <span className={cx}>Dekor til kjøretøy</span>
+              </Link>
+
+              <span className="block ml-4">
+                <Link href="/tjenester/bildekor" key={elem.href}>
+                  <span className={`${cx} text-[13px]`}>Bildekor</span>
+                </Link>
+              </span>
+
+              <span className="block ml-4">
+                <Link href="/tjenester/lastebildekor" key={elem.href}>
+                  <span className={`${cx} text-[13px]`}>Lastebildekor</span>
+                </Link>
+              </span>
+
+              <span className="block ml-4">
+                <Link href="/tjenester/bussdekor" key={elem.href}>
+                  <span className={`${cx} text-[13px]`}>Bussdekor</span>
+                </Link>
+              </span>
+            </Fragment>
+          )
+        } else if (elem.title === 'Bird Free Gel') {
+          return (
+            <a className={cx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
+              {elem.title}
+            </a>
+          )
+        } else {
+          return (
+            <Link href={elem.href} key={elem.href}>
+              <span className={cx}>{elem.title}</span>
+            </Link>
+          )
+        }
+      })}
+    </section>
+  )
+}
+
+function Kontaktinformasjon(): JSX.Element {
+  return (
+    <section>
+      <div className="text-lg font-medium">Kontakt oss</div>
+      <address className="space-y-1 flex flex-col not-italic">
+        <div className="flex flex-col">
+          <a href="mailto:post@skiltmakeren.no">post@skiltmakeren.no</a>
+          <span>+47 23 14 14 14</span>
+        </div>
+        <div className="flex flex-col">
+          <span>Gramveien 31</span>
+          <span>1832 Askim, Norge</span>
+        </div>
+      </address>
+    </section>
   )
 }

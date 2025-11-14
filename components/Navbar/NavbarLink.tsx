@@ -23,8 +23,8 @@ export default function NavbarLink({
   }
 
   return (
-    <Link href={path}>
-      <a className={classNames}>{text}</a>
+    <Link className={classNames} href={path}>
+      {text}
     </Link>
   )
 }

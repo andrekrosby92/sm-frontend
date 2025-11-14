@@ -1,21 +1,14 @@
 import React from 'react'
 
-import type { CompanyServiceMinimal } from 'types/company-service'
 import Footer from 'components/Footer/Footer'
 import Navbar from 'components/Navbar/Navbar'
 
-export default function Layout({
-  children,
-  links,
-}: {
-  children: React.ReactNode
-  links: CompanyServiceMinimal[]
-}): JSX.Element {
+export default function Layout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <React.Fragment>
-      <Navbar links={links} />
+      <Navbar />
       <main className="min-h-screen-wo-navbar-sm md:min-h-screen-wo-navbar">{children}</main>
-      <Footer companyServices={links} />
+      <Footer />
     </React.Fragment>
   )
 }

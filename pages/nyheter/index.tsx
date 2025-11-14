@@ -31,7 +31,7 @@ export default function NewsArticlesList({
         <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {sortedNewsArticles.map((elem) => (
             <Link href={`/nyheter/${elem.slug.current}`} key={elem._id}>
-              <a className="block space-y-1">
+              <span className="block space-y-1">
                 <div className="relative h-48">
                   <Image
                     alt={elem.title}
@@ -46,7 +46,7 @@ export default function NewsArticlesList({
                   <h1 className="text-2xl font-semibold text[#292929]">{elem.title}</h1>
                   <p className="text-md text-[#757575]">{elem.shortDescription}</p>
                 </header>
-              </a>
+              </span>
             </Link>
           ))}
         </section>

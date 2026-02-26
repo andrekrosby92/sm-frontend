@@ -9,6 +9,13 @@
   }
 }
 
+@layer base {
+  @font-face {
+    font-family: BebasNeue;
+    src: url('/fonts/BebasNeue-Regular.ttf');
+  }
+}
+
 .article-container {
   width: calc(100vw - 32px);
 }

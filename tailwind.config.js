@@ -31,6 +31,7 @@ module.exports = {
         },
       },
       fontFamily: {
+        bebas: "'BebasNeue', sans-serif",
         cursivex: "'Cursivex', serif",
       },
       minHeight: {

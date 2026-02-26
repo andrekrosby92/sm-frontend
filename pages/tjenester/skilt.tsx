@@ -45,8 +45,8 @@ export default function Page(): JSX.Element {
       <article className="max-w-6xl w-full mx-auto px-6 md:px-8 xl:px-0 pt-8 pb-24">
         <span className="text-sm xl:text-base text-primary">Tjenester / Skilt og foliedekor</span>
 
-        <header className="py-1 md:py-0">
-          <h1 className="font-bebas text-[68px] leading-[0.925] md:text-[112px] md:leading-[1.2]">
+        <header className="py-2 md:py-0 text-[#111]">
+          <h1 className="font-bebas text-[68px] leading-[0.92] md:text-[112px] md:leading-[1.2]">
             Skilt og foliedekor
           </h1>
         </header>

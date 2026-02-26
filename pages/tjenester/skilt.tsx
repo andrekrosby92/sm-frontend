@@ -4,28 +4,28 @@ import { useEffect, useState } from 'react'
 import SEO from 'components/SEO/SEO'
 
 const imagesSkilt = [
-  { src: '/images/skilt/fafo.jpg ', alt: 'Fafo' },
-  { src: '/images/skilt/fasadeskilt.jpg ', alt: 'Fasadeskilt' },
-  { src: '/images/skilt/kranz.png ', alt: 'Kranz' },
-  { src: '/images/skilt/mysen-rackethall.jpg ', alt: 'Mysen Rackethall' },
-  { src: '/images/skilt/over-oslo-1.jpg ', alt: 'Over Oslo 1' },
-  { src: '/images/skilt/over-oslo-2.jpg ', alt: 'Over Oslo 2' },
-  { src: '/images/skilt/peppes-pizza.jpg ', alt: 'Peppes Pizza' },
-  { src: '/images/skilt/plogskilt.jpg ', alt: 'Plogskilt' },
-  { src: '/images/skilt/roaf.jpg ', alt: 'Roaf' },
-  { src: '/images/skilt/wurth-1.jpg ', alt: 'Würth 1' },
-  { src: '/images/skilt/wurth-2.jpg', alt: 'Würth 2' },
+  { src: '/images/skilt/fafo.jpg', alt: 'Fafo' },
+  { src: '/images/skilt/fasadeskilt.jpg', alt: 'Fasadeskilt' },
+  { src: '/images/skilt/kranz.png', alt: 'Kranz' },
+  { src: '/images/skilt/mysen-rackethall.jpg', alt: 'Mysen Rackethall' },
+  { src: '/images/skilt/over-oslo-1.jpg', alt: 'Over Oslo 1' },
+  { src: '/images/skilt/over-oslo-2.jpg', alt: 'Over Oslo 2' },
+  { src: '/images/skilt/peppes-pizza.jpg', alt: 'Peppes Pizza' },
+  { src: '/images/skilt/plogskilt.jpg', alt: 'Plogskilt' },
+  { src: '/images/skilt/roaf.jpg', alt: 'Roaf' },
+  { src: '/images/skilt/wurth-1.jpg', alt: 'Würth 1' },
+  { src: '/images/skilt/wurth-2.jp', alt: 'Würth 2' },
 ]
 
 const imagesFolie = [
-  { src: '/images/skilt/assy.jpg ', alt: 'Assy' },
-  { src: '/images/skilt/avfallsdunker.jpg ', alt: 'Avfallsdunker' },
-  { src: '/images/skilt/folieskilt.jpg ', alt: 'Folieskilt' },
-  { src: '/images/skilt/klistremerker.jpg ', alt: 'Klistremerker' },
-  { src: '/images/skilt/kontorskilt.jpg ', alt: 'Kontorskilt' },
-  { src: '/images/skilt/nobina-1.jpg ', alt: 'Nobina 1' },
-  { src: '/images/skilt/nobina-2.jpg ', alt: 'Nobina 2' },
-  { src: '/images/skilt/wurth-3.jpg ', alt: 'Würth 3' },
+  { src: '/images/skilt/assy.jpg', alt: 'Assy' },
+  { src: '/images/skilt/avfallsdunker.jpg', alt: 'Avfallsdunker' },
+  { src: '/images/skilt/folieskilt.jpg', alt: 'Folieskilt' },
+  { src: '/images/skilt/klistremerker.jpg', alt: 'Klistremerker' },
+  { src: '/images/skilt/kontorskilt.jpg', alt: 'Kontorskilt' },
+  { src: '/images/skilt/nobina-1.jpg', alt: 'Nobina 1' },
+  { src: '/images/skilt/nobina-2.jpg', alt: 'Nobina 2' },
+  { src: '/images/skilt/wurth-3.jpg', alt: 'Würth 3' },
 ]
 
 // prettier-ignore

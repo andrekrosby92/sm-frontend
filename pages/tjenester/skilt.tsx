@@ -1,6 +1,7 @@
 import SEO from 'components/SEO/SEO'
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel'
 import ContactForm from 'scenarios/contact/components/ContactForm'
+import DividerFaded from 'components/Dividers/DividerFaded'
 
 const imagesSkilt = [
   { src: '/images/skilt/fafo.jpg', alt: 'Fafo' },
@@ -50,6 +51,12 @@ export default function Page(): JSX.Element {
             Skilt og foliedekor
           </h1>
         </header>
+
+        <div className="relative">
+          <div className="absolute -top-[12px] md:-top-[24px]">
+            <DividerFaded />
+          </div>
+        </div>
 
         <section className="max-w-4xl">
           <div className="space-y-4">

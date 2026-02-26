@@ -94,7 +94,7 @@ export default function Page(): JSX.Element {
                   </li>
                 </ul>
 
-                <h3 className="text-xl md:text-2xl font-medium">Hvorfor velge oss for dine skiltbehov?</h3>
+                <h3 className="text-xl md:text-2xl font-medium">Hvorfor velge oss?</h3>
                 <p>
                   Vi tilbyr rask leveringstid, konkurransedyktige priser og skilt av høy kvalitet. Uansett om du trenger
                   ett enkelt skilt eller en stor bestilling, sørger vi for at resultatet blir akkurat slik du ønsker.

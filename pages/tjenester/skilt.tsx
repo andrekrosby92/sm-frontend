@@ -112,15 +112,15 @@ export default function Page(): JSX.Element {
               <div className="max-w-3xl mt-4 md:text-lg leading-7 space-y-4">
                 <p>
                   Folie er en av de mest allsidige løsningene for skilting og dekor. Enten du trenger klistremerker,
-                  vinyldekor eller større budskap i full farge, gir folieløsninger deg nesten ubegrensede muligheter for
-                  kreativ profilering.
+                  vinyldekor eller større budskap i full farge, gir folie nesten ubegrensede muligheter for kreativ
+                  profilering.
                 </p>
 
                 <h3 className="text-xl md:text-2xl font-medium">Full frihet i design og farger</h3>
                 <p>
-                  Med printfolie kan vi produsere klistremerker, dekor og storformatgrafikk i alle typer farger og
-                  motiver. Trykket legges direkte på folien, noe som gjør det mulig å gjenskape komplekse logoer, bilder
-                  og budskap. Her er det kun fantasien som setter grenser.
+                  Med printfolie kan vi produsere klistremerker, dekor og grafikk i alle typer farger og motiver.
+                  Trykket legges direkte på folien, noe som gjør det mulig å gjenskape komplekse logoer, bilder og
+                  budskap. Her er det kun fantasien som setter grenser.
                 </p>
 
                 <h3 className="text-xl md:text-2xl font-medium">Holdbar og profesjonell finish</h3>

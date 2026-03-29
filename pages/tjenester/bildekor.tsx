@@ -14,7 +14,7 @@ export default function Bildekor(): JSX.Element {
         description="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
         descriptionFacebook="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
         descriptionTwitter="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
-        imageSource="https://www.skiltmakeren.no/images/bildekor/firmadekor-svart-varebil.jpg"
+        imageSource="https://www.skiltmakeren.no/images/bildekor/firmadekor-hvit-bil-skiltmakeren.jpg"
         title="Bildekor og Helfoliering · Skiltmakeren AS"
       />
 
@@ -36,6 +36,10 @@ export default function Bildekor(): JSX.Element {
             <div className="mt-8 mx-[-16px] md:mx-auto xl:pr-80">
               <ImageCarousel
                 images={[
+                  {
+                    src: '/images/bildekor/firmadekor-hvit-bil-skiltmakeren.jpg',
+                    alt: 'Hvit varebil med Skiltmakeren firmadekor',
+                  },
                   {
                     src: '/images/bildekor/hvite-elektriske-varebiler.jpg',
                     alt: 'Hvite varebiler med blå firmadekor',

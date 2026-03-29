@@ -11,11 +11,11 @@ export default function Bildekor(): JSX.Element {
     <Fragment>
       <SEO
         canonicalUrl="https://www.skiltmakeren.no/tjenester/bildekor"
-        description="Vi tilbyr profesjonell profilering gjennom bildekor, helfoliering og reklame på bil."
-        descriptionFacebook="Vi tilbyr profesjonell profilering gjennom bildekor, helfoliering og reklame på bil."
-        descriptionTwitter="Vi tilbyr profesjonell profilering gjennom bildekor, helfoliering og reklame på bil."
-        imageSource="https://www.skiltmakeren.no/images/meta-image.png"
-        title="Bildekor & Helfoliering · Skiltmakeren AS"
+        description="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
+        descriptionFacebook="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
+        descriptionTwitter="Profesjonell bildekor, firmadekor og helfoliering. Landsdekkende montering med kvalitetsfolie fra 3M og Avery Dennison."
+        imageSource="https://www.skiltmakeren.no/images/bildekor/firmadekor-svart-varebil.jpg"
+        title="Bildekor og Helfoliering · Skiltmakeren AS"
       />
 
       <div className="article-container mx-auto mt-4 md:mt-6 xl:mt-8 mb-24 text-[#231F20]">

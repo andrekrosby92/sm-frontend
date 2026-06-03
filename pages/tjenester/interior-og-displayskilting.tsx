@@ -28,8 +28,8 @@ export default function Fasadeskilt(): JSX.Element {
 
             <div className="max-w-3xl mt-4 xl:mt-6">
               <p className="text-xl leading-[32px] xl:text-2xl xl:leading-[36px]">
-                Vil du skape et godt arbeidsmiljø og sikre et profesjonelt uttrykk for besøkende? Våre løsninger for
-                interiør og displayskilting er skreddersydd til deres lokaler. God innvendig profilering er ikke bare
+                Vil du skape et godt arbeidsmiljø og sikre et profesjonelt inntrykk for besøkende? Våre løsninger for
+                interiør og displayskilting er skreddersydd for deres lokaler. God innvendig profilering er ikke bare
                 estetisk – det er et kraftfullt verktøy for trivsel, effektivitet og merkevarebygging.
               </p>
             </div>
@@ -59,10 +59,10 @@ export default function Fasadeskilt(): JSX.Element {
             <h2 className="text-3xl md:text-4xl font-medium">Innvendig profilering til alle lokaler</h2>
             <div className="max-w-3xl mt-4 md:text-lg leading-7 space-y-4">
               <p>
-                I over 30 år har Skiltmakeren vært en viktig spiller innen alt av visuell kommunikasjon. Vi tilbyr et
-                komplett utvalg av interiørdekor, glassfolie og smarte skiltsystemer. Enten du trenger elegant frosting
-                til møterom, enkle og robuste systemskilt eller unike displayer til butikken, leverer vi løsninger som
-                gir lokalene dine en frisk og unik identitet.
+                I over 30 år har Skiltmakeren vært en viktig aktør innen visuell kommunikasjon. Vi tilbyr et komplett
+                utvalg av interiørdekor, glassfolie og smarte skiltsystemer. Enten du trenger elegant frosting til
+                møterom, enkle og robuste systemskilt eller unike displayer til butikken, leverer vi løsninger som gir
+                lokalene dine en frisk og unik identitet.
               </p>
               <p>
                 Våre løsninger tilpasses helt etter bedriftens lokaler og behov, uansett om du ønsker et minimalistisk
@@ -117,7 +117,7 @@ export default function Fasadeskilt(): JSX.Element {
               <div className="space-y-4">
                 <p>
                   Innvendig profilering handler om balansen mellom funksjon og estetikk. Våre produkter er designet for
-                  å være stilrene, funksjonelle og også slitesterke. Vi kombinerer tradisjonelt håndverk med moderne
+                  å være stilrene, funksjonelle og slitesterke. Vi kombinerer tradisjonelt håndverk med moderne
                   teknologi for å levere interiørløsninger av høyeste kvalitet som varer.
                 </p>
                 <p>Vi tilbyr flere typer innvendige løsninger tilpasset dine behov:</p>
@@ -146,7 +146,7 @@ export default function Fasadeskilt(): JSX.Element {
                 <p>
                   Forvandle tomme vegger til blikkfang med skreddersydd, høyoppløselig fototapet eller flotte
                   lerretsbilder. Vi leverer og monterer også utfreste fasadebokstaver og logoer i materialer som plast,
-                  tre og metaller. Disse kan monteres med avstandsholdere til veggen for å skape en eksklusiv,
+                  tre og metall. Disse kan monteres med avstandsholdere fra veggen for å skape en eksklusiv,
                   tredimensjonal effekt.
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function Fasadeskilt(): JSX.Element {
             <h2 className="text-3xl md:text-4xl font-medium">Hvorfor velge Skiltmakeren?</h2>
             <div className="max-w-3xl mt-4 md:text-lg leading-7 space-y-4">
               <p>
-                Med lang erfaring innen produksjon og montering av interiørdekor, vet vi hva som skal til for å skape en
+                Med lang erfaring innen produksjon og montering av interiørdekor vet vi hva som skal til for å skape en
                 sterk visuell identitet. Våre designere jobber tett med deg for å sikre at profileringen harmonerer med
                 bedriftens identitet og byggets arkitektur. Vi bruker kun materialer av høy kvalitet, og vår ekspertise
                 sikrer et sluttprodukt som både ser bra ut og varer i mange år.

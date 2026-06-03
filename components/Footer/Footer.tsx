@@ -101,12 +101,6 @@ function Tjenester(): JSX.Element {
               </span>
             </Fragment>
           )
-        } else if (elem.title === 'Bird Free Gel') {
-          return (
-            <a className={cx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
-              {elem.title}
-            </a>
-          )
         } else {
           return (
             <Link href={elem.href} key={elem.href}>

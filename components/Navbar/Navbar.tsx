@@ -108,27 +108,14 @@ function ServicesMenu({
   return (
     <div className={`fixed top-16 md:top-20 left-0 w-full overflow-hidden ${classNames}`} ref={ref}>
       <div className="h-full space-x-16 flex justify-center items-center" style={style}>
-        {TJENESTER.map((elem) => {
-          if (elem.href === 'https://www.bird-free.no') {
-            return (
-              <a className={hrefCx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
-                <MenuItem>
-                  <MenuItem.Image image={elem.icon} />
-                  <MenuItem.Title>{elem.title}</MenuItem.Title>
-                </MenuItem>
-              </a>
-            )
-          } else {
-            return (
-              <Link className={hrefCx} href={elem.href} key={elem.href}>
-                <MenuItem>
-                  <MenuItem.Image image={elem.icon} />
-                  <MenuItem.Title>{elem.title}</MenuItem.Title>
-                </MenuItem>
-              </Link>
-            )
-          }
-        })}
+        {TJENESTER.map((elem) => (
+          <Link className={hrefCx} href={elem.href} key={elem.href}>
+            <MenuItem>
+              <MenuItem.Image image={elem.icon} />
+              <MenuItem.Title>{elem.title}</MenuItem.Title>
+            </MenuItem>
+          </Link>
+        ))}
       </div>
     </div>
   )
@@ -209,25 +196,14 @@ function LinksList(): JSX.Element {
 
   return (
     <Fragment>
-      {TJENESTER.map((elem) => {
-        if (elem.href === 'https://www.bird-free.no') {
-          return (
-            <a className={cx} href={elem.href} key={elem.href} rel="noopener noreferrer" target="_blank">
-              <span>{elem.title}</span>
-              <ChevronRight />
-            </a>
-          )
-        } else {
-          return (
-            <Link href={elem.href} key={elem.href}>
-              <span className={cx}>
-                <span>{elem.title}</span>
-                <ChevronRight />
-              </span>
-            </Link>
-          )
-        }
-      })}
+      {TJENESTER.map((elem) => (
+        <Link href={elem.href} key={elem.href}>
+          <span className={cx}>
+            <span>{elem.title}</span>
+            <ChevronRight />
+          </span>
+        </Link>
+      ))}
     </Fragment>
   )
 }

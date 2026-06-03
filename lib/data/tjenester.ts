@@ -5,7 +5,7 @@ export const TJENESTER = [
     href: '/tjenester/fasadeskilt',
     icon: {
       src: '/images/icons/fasade.svg',
-      alt: 'Fasade',
+      alt: 'Ikon for "Fasadeskilt"',
     },
   },
   {
@@ -14,7 +14,7 @@ export const TJENESTER = [
     href: '/tjenester/dekor-til-kjoretoy',
     icon: {
       src: '/images/icons/vehicles.png',
-      alt: 'Kjøretøy',
+      alt: 'Ikon for "Dekor til kjøretøy"',
     },
   },
   {
@@ -23,7 +23,7 @@ export const TJENESTER = [
     href: '/tjenester/skilt',
     icon: {
       src: '/images/icons/sign.svg',
-      alt: 'Skilt',
+      alt: 'Ikon for "Skilt og foliedekor"',
     },
   },
   {
@@ -32,7 +32,7 @@ export const TJENESTER = [
     href: '/tjenester/arbeidsklaer-og-verneutstyr',
     icon: {
       src: '/images/icons/arbeidsklaer.png',
-      alt: 'Arbeidsklær',
+      alt: 'Ikon for "Arbeidsklær"',
     },
   },
   {
@@ -41,16 +41,16 @@ export const TJENESTER = [
     href: '/tjenester/containerdekor',
     icon: {
       src: '/images/icons/container.svg',
-      alt: 'Container',
+      alt: 'Ikon for "Containerdekor"',
     },
   },
   {
-    title: 'Bird Free Gel',
-    href: 'https://www.bird-free.no',
-    desc: 'Bird Free er et effektivt produkt utviklet for å avskrekke duer og andre fugletyper.',
+    title: 'Interiør og displayskilting',
+    href: '/tjenester/interior-og-displayskilting',
+    desc: 'Interiørdekor, glassfolie og innvendig skilting løfter kontorlandskapet og skaper private soner til f.eks. møterom.',
     icon: {
-      src: '/images/bird-free.png',
-      alt: 'Bird Free',
+      src: '/images/icons/arrow.png',
+      alt: 'Ikon for "Interiør og displayskilting"',
     },
   },
 ] as const

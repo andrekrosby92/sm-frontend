@@ -11,7 +11,7 @@ export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.E
     <div className="bg-secondary-lighter/50">
       <SectionWrapperPrimary className="xl:py-24 space-y-6">
         <SectionHeaderPrimary>Hva gjør vi?</SectionHeaderPrimary>
-        <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <section className="mb-6 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
           {whatWeDo.map((elem) => (
             <div className="space-y-1" key={elem.title}>
               <Image alt={elem.title} height={75} src={Sanity.buildImageUrl(elem.icon)} width={75} />

@@ -6,16 +6,16 @@ import DividerFaded from 'components/Dividers/DividerFaded'
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel'
 import SEO from 'components/SEO/SEO'
 
-export default function Fasadeskilt(): JSX.Element {
+export default function InteriorOgDisplayskilting(): JSX.Element {
   return (
     <Fragment>
       <SEO
-        canonicalUrl="https://www.skiltmakeren.no/tjenester/fasadeskilt"
-        description="Fasadeskilt som skaper inntrykk - skreddersydd for å gi din bedrift et profesjonelt uttrykk. Vi tilbyr lysskilt, bokstaver i metall, plateskilt og folieskilt til alle bransjer."
-        descriptionFacebook="Profesjonelle fasadeskilt som gir bedriften din et tydelig og gjennomført uttrykk. Skiltmakeren leverer alt fra folieskilt og plateskilt til lysskilt og bokstaver i metall."
-        descriptionTwitter="Skreddersydde fasadeskilt som gir synlighet og identitet til din bedrift. Velg mellom lysskilt, bokstaver, folieskilt og mer - levert av Skiltmakeren AS."
+        canonicalUrl="https://www.skiltmakeren.no/tjenester/interior-og-displayskilting"
+        description="Interiørdekor og displayskilting som engasjerer - skreddersydd for dine lokaler. Vi tilbyr glassfolie, systemskilt, veggdekor, 3D-logoer og displayer til alle bransjer."
+        descriptionFacebook="Profesjonell interiørdekor og displayskilting som gir lokalene dine et gjennomført uttrykk. Skiltmakeren leverer glassfolie, systemskilt, veggdekor og spesialløsninger."
+        descriptionTwitter="Skreddersydd interiørdekor og displayskilting som skaper identitet og trivsel. Velg mellom glassfolie, systemskilt, 3D-logoer og mer - levert av Skiltmakeren AS."
         imageSource="https://www.skiltmakeren.no/images/meta-image.png"
-        title="Fasadeskilt · Skiltmakeren AS"
+        title="Interiør og displayskilting · Skiltmakeren AS"
       />
 
       <div className="article-container mx-auto mt-4 md:mt-6 xl:mt-8 mb-24 text-[#231F20]">

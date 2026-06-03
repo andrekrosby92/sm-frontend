@@ -9,9 +9,10 @@ import { WhatWeDo as IWhatWeDo } from 'types/what-we-do'
 export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.Element {
   return (
     <div className="bg-secondary-lighter/50">
-      <SectionWrapperPrimary className="xl:py-24 space-y-6">
+      <SectionWrapperPrimary className="xl:py-24">
         <SectionHeaderPrimary>Hva gjør vi?</SectionHeaderPrimary>
-        <section className="mb-6 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+        <section className="mt-8 mb-6 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
           {whatWeDo.map((elem) => (
             <div className="space-y-1" key={elem.title}>
               <Image alt={elem.title} height={75} src={Sanity.buildImageUrl(elem.icon)} width={75} />
@@ -22,6 +23,7 @@ export default function WhatWeDo({ whatWeDo }: { whatWeDo: IWhatWeDo[] }): JSX.E
             </div>
           ))}
         </section>
+
         <Link href="/om-oss">
           <span className="inline-block px-4 py-2.5 rounded-lg bg-gradient-to-tl from-primary to-primary-light text-primary-darker">
             Les mer om Skiltmakeren

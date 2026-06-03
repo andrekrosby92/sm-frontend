@@ -35,11 +35,6 @@ export default function CompanyServiceItem({
     target?: string
   } = {}
 
-  if (href === 'https://www.bird-free.no') {
-    options.rel = 'noopener noreferrer'
-    options.target = '_blank'
-  }
-
   return (
     <Link className="relative p-6 xl:py-8" href={href} {...options}>
       <a.div className="group absolute inset-0 hidden xl:flex rounded-xl shadow-light overflow-hidden" {...transform}>
